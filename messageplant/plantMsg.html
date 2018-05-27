@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html  lang="en">
+<meta charset="utf-8"> 
+<title> Message plant app.</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="msgp.css">
+<script type="text/javascript" src="msgp.js"></script>
+<head>
+<style>
+body {
+    background-color: #dcffcc;
+}
+textarea {
+    font-size: 35px;
+}
+</style>
+<div class="flex-container">
+  <title>Plant a message.</title>
+</head>
+<body>
+<center>
+<h1>Plant a message</h1>
+<p id="demo" >Plant a messsage at your position, <br> 
+Mark the spot,
+type a message, 
+name position,<br>
+email name to a friend 
+to find the message.<br>
+Your message can only be read at this spot. </p><br>
+<input type="email" placeholder="Enter email Address" id="emailAd" class="textcss2">
+<br>
+<h2> Enter the message</h2>
+    <textarea  name="notestext" rows=3 cols=30 id="lextxtarea" placeholder="Type a Message"></textarea><br>  <br>
+<input type="text" id="txtName" placeholder="Name this location" class="textcss">
+<br><br>    
+<button id="testbut" onclick="getLocation()"  class="test">Send</button><br><br>
+
+<div id="mapholder"></div>
+
+
+<button id="butsave" type= "button" onClick="saveLoc()" hidden >Send</button>
+<br><br>
+
+<form action="getplantMsg.html" method="get" type="button" style="cursor:pointer">
+<button type="button2" class="test"> Receive messages </button>
+</form>
+
+<br><br><br>
+<button type="button" id="buttonexit" VALUE="Exit" class="test" onClick="history.go(-1)"; return true;> Exit
+</button>
+</center>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+

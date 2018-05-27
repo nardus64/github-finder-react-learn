@@ -1,0 +1,116 @@
+var video;
+ form {
+  margin: 0 auto;
+  width : 400px;
+
+  padding: 1em;
+  border : 1px solid #CCC;
+  border-radius: 1em;
+}    
+    function init() {
+       // function called when the page is loaded
+       video = document.querySelector("#myVideo");
+       // For initial value
+       video.width = window.innerWidth;
+       video.height = window.innerHeight;
+       // For dealing with window resize
+       window.onresize = function() {
+           video.width = window.innerWidth;
+           video.height = window.innerHeight;
+       };
+    }
+
+body { color: black}
+body {background-color: lightgreen;
+font-size : 35px;
+cursor : pointer;} 
+navigation{
+	width: 180px;
+	font-size:90%;
+}
+.test{
+	height:50px;
+	width:150px;
+}
+ #myCanvas1 {
+         border: 1px solid black
+     }    
+    #figcptionaudio1 {
+        font-size : .8em;
+        padding : 6px 8px;
+        background : #dddddd;
+        display :block;
+        text-align :right;
+        font-family : georgia, serif;
+        font-style : italic;
+        border-radius : 7px ;
+    }}
+
+  body1 {   
+    #figaudio1 > img {
+        background : #eeeeee;
+        padding : 5px;
+        border : solid 1px #444444;
+    }}
+     
+    /* For audio and img transitions/animation */
+    audio, #figaudio1 > img {
+        transition:all 0.5s;
+    }
+     
+    #figaudio1 > img:hover {
+        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+        transform: scale(1.05);
+    }
+     
+    audio:hover, audio:focus, audio:active {
+        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+        transform: scale(1.05);
+    }
+	body{
+    #w3devCampusVideo {
+        width: 200px;
+		height: 200px
+        transition: all 0.5s ease-in-out;
+    }}
+    body { 
+    #w3devCampusVideo:hover {
+        width:200px;
+        transform:rotate(-5 deg);
+    }}
+
+    body {
+        margin:0;
+        padding:3px;
+        overflow:hidden;
+    }
+fieldset{
+	align :center;
+}
+button {text-align: center;
+		width		:10%;
+		height		:50px;
+		border-radius: 10%;
+		font-size : 45px;
+}
+		
+header{
+ display         : block;
+ background-color: green;
+ padding         : 1px;
+ text-align      :center;
+}
+testing{
+	height: 50%;
+    background-image: url('http://dupontcours.free.fr/IMG/dots.png'),                             url('#');	
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    background-position: center center, top left;
+    font-family: sans-serif;
+    color: #051a00;
+}
+
+ canvas {
+  border:1px solid black
+}  
+

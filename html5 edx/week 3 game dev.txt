@@ -1,0 +1,191 @@
+html5 week 3 game dev
+w3c recomendation: context of the vanvas https://www.w3.org/TR/2dcontext/
+and https://www.w3.org/TR/2015/REC-2dcontext-20151119/
+ANIMATING AT 60 FPS: THE REQUESTANIMATIONFRAME API 
+VIDEOS AND ANIMATED TEXTURES: THE <VIDEO> ELEMENT
+AUDIO (STREAMED AUDIO AND REAL TIME SOUND EFFECTS): THE <AUDIO> ELEMENT AND THE WEB AUDIO API
+The <audio> element - only compresed audio, not for dobler effects
+The Web Audio API -- https://www.w3.org/TR/webaudio/
+INTERACTING: DEALING WITH KEYBOARD AND MOUSE EVENTS, THE GAMEPAD API
+
+MULTI PARTICIPANT FEATURES: WEBSOCKETS - https://fr.wikipedia.org/wiki/WebSocket
+IMPORTANT INFORMATION: NOT COVERED IN THIS COURSE
+
+----------------
+The "game loop"
+Performing animation using the JavaScript setInterval(...) function
+Syntax: setInterval(function, ms);
+The setInterval function calls a function or evaluates an expression at specified intervals of time (in milliseconds), and returns a unique id of the action. You can always stop this by calling the clearInterval(id) function with the interval identi
+http://jsbin.com/qopefu/edit?html,output
+
+Using setTimeout() instead of setInterval()
+Syntax: setTimeout(function, ms);
+The setTimeout function works like setInterval but with one little difference: it calls your function AFTER a given amount of time.
+
+Using the requestAnimationFrame API
+This approach helps the browser to optimize all the animations on the screen, no matter whether  Canvas, DOM or WebGL. Also, if the animation loop is running in a browser tab that is not currently visible, the browser won't keep it running.
+The timestamp parameter of the mainloop function is useful for exactly that: it gives a high resolution time.
+
+---------------------------------------
+A game framework skeleton (in the js file)
+var GF = function(){
+  var mainLoop = function(time){
+    //Main function, called each frame
+    requestAnimationFrame(mainLoop);
+  };
+  var start = function(){
+    requestAnimationFrame(mainLoop);
+  };
+  // Our GameFramework returns a public API visible from outside its scope
+  // Here we only expose the start method, under the "start" property name.
+  return {
+    start: start
+
+  };
+};
+
+With this skeleton, it's very easy to create a new game instance:
+
+var game = new GF();
+// Launch the game, start the animation loop, etc.
+game.start();
+
+-------------------------------------
+HTML5 CANVAS BASIC USAGE: DRAWING A MONSTER
+.html file declare the canvas
+<body>
+   <canvas id="myCanvas" width="200" height="200"></canvas>
+</body>
+and to see it use theis in the .css
+canvas {
+   border: 1px solid black;
+}
+And here is a reminder of best practices when using the canvas, as described in the HTML5 Part 1 course:
+
+Use a function that is called AFTER the page is fully loaded (and the DOM is ready), set a pointer to the canvas node in the DOM.
+Then, get a 2D graphic context for this canvas (the context is an object we will use to draw on the canvas, to set global properties such as color, gradients, patterns and line width).
+Only then can you can draw something,
+Do not forget to use global variables for the canvas and context objects. I also recommend keeping the width and height of the canvas somewhere. These might be useful later.
+For each function that will change the context (color, line width, coordinate system, etc.), start by saving the context, and end by restoring it.
+-----------------------------------------------------------------------
+Input & output: how events work in Web apps & games?
+Details of the DOM event are passed to the event listener function
+method 3
+document.getElementById('someDiv').addEventListener('click', function() {
+   alert('clicked!');
+}, false);
+Details of the DOM event are passed to the event listener function
+element.addEventListener('click', function(event) {
+   // now you can use event object inside the callback
+}, false);
+----------------------------------------------------------------------
+Dealing with key events
+After a keyboard-related event (eg keydown or keyup), the code of the key that fired the event will be passed to the listener function.  It is possible to test which key has been pressed or released, like this:
+window.addEventListener('keydown', function(event) {
+   if (event.keyCode === 37) {
+     // Left arrow was pressed
+   }
+}, false);
+
+list of keys
+https://css-tricks.com/snippets/javascript/javascript-keycodes/
+GAME REQUIREMENTS: MANAGING MULTIPLE KEYPRESS / KEYRELEASE EVENTS
+
+Keep the list of pertinent keys in a javascript object
+The typical method used is: store the list of the keys (or mouse button or whatever game pad button...) that are up or down at a given time in a JavaScript object. For our small game engine we will call this object "inputStates".
+Add this to our game framework:
+
+So, these are the changes to our small game engine prototype (which is far from finished yet):
+
+We add an empty inputStates object as a global property of the game engine,
+In the start() method, we add event listeners for each keydown and keyup event which controls the game.
+In each listener, we test if an arrow key or the space bar has been pressed or released, and we set the properties of the inputStates object accordingly. For example, if the space bar is pressed, we set inputStates.space=true; but if it's released, we reset to inputStates.space=false.
+In the main loop (to prove everything is working), we add tests to check which keys are down; and if a key is down, we print its name on the canvas.
+----------------------------------------
+Dealing with mouse events
+The trick to get the right x and y mouse cursor coordinates is to use this method from the canvas API:
+// necessary to take into account CSS boudaries
+var rect = canvas.getBoundingClientRect();
+--------------------------------------------------------
+Dealing with gamepad events gamepad.js
+------------------------------------------------------
+private functions????? do not return make it a private function
+
+Move the monster with keyboard and mouse
+MAKE THE MONSTER MOVE USING THE ARROW KEYS, AND TO INCREASE ITS SPEED BY PRESSING A MOUSE BUTTON
+events, 
+add a JavaScript object to describe the monster
+// The monster!
+var monster = { x:10,y:10,speed:1
+Where monster.x and monster.y define the monster's current position and monster.speed corresponds to the number of pixels the monster will move between animation frames.};
+this is not the bestway - time based is better.
+------------------------------------------
+Time-based animation
+erase the canvas,
+draw the shapes,
+move the shapes,
+go to step 1.
+------------------------------------------
+Measuring time between frames to achieve a constant speed on screen, even when the frame rate changes
+METHOD 1 - USING THE JAVASCRIPT DATE OBJECT
+var time = new Date().getTime();
+var time = Date.now();
+So, if we measure the time at the beginning of each animation loop, and store it, we can then compute the delta of times elapsed between two consecutive loops.
+
+We then apply some simple maths to compute the number of pixels we need to move the shape to achieve a given speed (in pixels/s).
+
+METHOD 2 -  USING THE NEW HTML5 HIGH-RESOLUTION TIMER
+https://www.w3.org/TR/hr-time/
+This API is very simple to use - just do: var time = performance.now();
+
+performance.now() returns the time since the load of the document (it is called a DOMHighResTimeStamp), with a sub mill-second accuracy, as a floating point value, with very high accuracy.
+Date.now() returns the number of mill-seconds since the Unix epoch, as an integer value.
+ var speedX; // speedX is the target speed of the rectangle in pixels/s
+   // for time based animation
+   var now, delta;
+   // High resolution timer
+   var then = performance.now();
+   // Called after the DOM is ready (page loaded)
+   function init() {
+     ...
+   }
+      function animationLoop() {
+     // Measure time, with high resolution timer
+     now = performance.now();
+	 delta = now - then; incX = calcDistanceToMove(delta, speedX);
+	  ctx.clearRect(0, 0, width, height);
+	  ctx.strokeRect(x, y, 10, 10);
+	     x += incX;
+		 if((x+10 >= width) || (x <= 0)) {
+		  x -= incX;
+      speedX = -speedX;
+	     then = now;
+   // call the animation loop again
+   requestAnimationFrame(animationLoop);
+ }
+METHOD 3 - USING THE OPTIONAL TIMESTAMP PARAMETER OF THE CALLBACK FUNCTION OF REQUESTANIMATIONFRAME
+This is the recommended method!
+There is an optional parameter that is passed to the callback function called by requestAnimationFrame: a timestamp!
+ this timestamp corresponds to the time elapsed since the page has been loaded.
+ <title>Time based animation using the parameter of the requestAnimationFrame callback</title>
+      // asks for next frame
+     requestAnimationFrame(animationLoop);
+	 
+========================================================
+Using the time to set up the frame rate of the animation
+
+PRINCIPLE: EVEN IF THE MAINLOOP IS CALLED 60 TIMES PER SECOND, IGNORE SOME FRAMES IN ORDER TO REACH THE DESIRED FRAME RATE
+
+It is also possible to set the frame rate using time based animation: we can set a global variable that corresponds to the desired frame rate and compare the elapsed time between two executions of the animation loop:
+
+If the time elapsed is too short for the target frame rate: do nothing,
+If the time elapsed exceeds the delay corresponding to the chosen frame rate: draw the frame and reset this time to zero.
+
+SAME TECHNIQUE WITH THE BOUNCING RECTANGLE. SEE HOW WE CAN SET BOTH SPEED AND FRAME-RATE USING A HIGH-RESOLUTION TIME
+
+COULD WE USE SETINTERVAL?
+
+It's quite possible to use setInterval(function, interval) if you do not need an accurate scheduling.
+-----------------
+
+Adding time-based animation to our game engine

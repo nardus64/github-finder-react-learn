@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Message planter app.
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</title>
+<link rel="stylesheet" href="msgp.css">
+<script type="text/javascript" src="msgp.js"></script>
+<script>
+var x = document.getElementById("demo");
+</script>
+<head>
+<style>
+body {
+    background-color: lightgreen;
+}
+
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightblue;
+    }
+}
+</style>
+  <meta charset="utf-8">
+  <title>Plant a message.</title>
+</head>
+<body>
+   <center>
+   <h1>Plant a message</h1>
+   <p>Email a friend and plant a message </p>
+   <p> at this spot or</p>
+   <form action="getPlantMsg.html" method="get" type= "button2" >
+<button> get your message.</button><br>
+<br>
+    Email <input type="email" placeholder="email" id="emailAd">
+   <h2> Enter the message</h2>
+ 	<textarea  name="notestext" rows=3 cols=30 id="lextxtarea" placeholder="Message" ></textarea><br>  
+   <button type="button" onClick="getGeoLocation()">Plant here </button>
+  
+   <button type= "button" onClick="listLocation()" disabled hidden >List</button>
+   <h3>Name this location</h3><input type="text" id="txtName" placeholder="location name"><br><br>
+   <button type= "button" onClick="saveLoc()">Send</button>
+<button type= "button" onClick="deleteLocation()">Clear </button>
+   <input type="button" VALUE="Exit"
+	onClick="history.go(-1);return true;">
+	<p id="demo"> CLICK SEND TO DISPLAY</p>
+	<div id="mapholder"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+https://37e74e613d1fd111823085c646278e85e285cba1.googledrive.com/host/0B9jH_xfv53DCY3doazFpYUJPUlE/xpense.html
+
+
+https://support.google.com/drive/answer/2881970?hl=en
+Host web pages with Google Drive
+
+Note: This feature will not be available after August 31, 2016.
+You can host webpages with Google Drive until August 31, 2016. After that, googledrive.com/host/ID will no longer work.
+
+Find a new website host with Google Domains (US only)
+Learn more about why webpage hosting is being discontinued.
+See other options for hosting content.
+Publish webpages with Google Drive
+You can make web resources like HTML, CSS, and Javascript files viewable as a website with Google Drive.
+
+Note: Google Drive does not support web resources that use server-side scripting languages, like PHP.
+
+Go to drive.google.com.
+Select a file.
+At the top, click Share.
+At the bottom right of the sharing box, click Advanced.
+Click Change…
+Click On - Public on the web and then Save.
+Copy the document ID in the field below "Link to share." The document ID is made up of numbers, uppercase letters, and lowercase letters between slashes in the URL.
+Share the URL that looks like "www.googledrive.com/host/[doc id]. Anyone can now view your webpage.
+Note: [doc id] represents the document ID you copied earlier.
+
+use blogger.com from google+ create a blog etc.
+firebase.com - creates  static pages for web/os1,android
+https://firebase.google.com/docs/web/setup
+https://firebase.google.com/docs/reference/js/index-all
+https://firebase.google.com/docs/samples/#web
+codelabs.developers.google.com/io2016
+
+this must go at bottom of web app
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBHCV3b6CdQaXmRQcohtT1iDRqHRCusuDU",
+    authDomain: "xpens-1470465251676.firebaseapp.com",
+    databaseURL: "https://xpens-1470465251676.firebaseio.com",
+    storageBucket: "xpens-1470465251676.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    

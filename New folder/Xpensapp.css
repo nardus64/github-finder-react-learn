@@ -1,0 +1,31 @@
+button {text-align: center;
+		width		:50%;
+		border-radius: 10%;
+		font-size : 50px;
+		background-color: #dcffcc;
+		padding: 0px 0px 0px 0px;
+		border: 0px;
+		cursor: pointer;
+}
+body{
+	display : flex;
+	min-height :100vh;
+	align-items : top;
+	justify-content :top;
+	flex-direction : column;
+}
+h1{
+	font-size : 60px;
+}
+.test{
+	height:50px;
+	width:150px;
+}
+.test2{
+	height:50px;
+	width:150px;
+}
+.font3{
+	height:80px;
+	font-size : 80px;
+}

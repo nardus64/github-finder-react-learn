@@ -1,0 +1,704 @@
+javascript examples
+code to display mouse and mousekey pressed
+var canvas, ctx;
+var inputStates = {};
+window.onload = function init() {
+   canvas = document.getElementById('myCanvas');
+   ctx = canvas.getContext('2d');
+   canvas.addEventListener('mousemove', function (evt) {
+      inputStates.mousePos = getMousePos(canvas, evt);
+      var message = 'Mouse position: ' + inputStates.mousePos.x + ',' +                                    inputStates.mousePos.y;
+      writeMessage(canvas, message);
+   }, false);
+   canvas.addEventListener('mousedown', function (evt) {
+      inputStates.mousedown = true;
+      inputStates.mouseButton = evt.button;
+      var message = "Mouse button " + evt.button + " down at position: " + 
+                    inputStates.mousePos.x + ',' + inputStates.mousePos.y;
+      writeMessage(canvas, message);
+   }, false);
+   canvas.addEventListener('mouseup', function (evt) {
+      inputStates.mousedown = false;
+      var message = "Mouse up at position: " + inputStates.mousePos.x + ',' +     
+                    inputStates.mousePos.y;
+      writeMessage(canvas, message);
+   }, false);
+};
+function writeMessage(canvas, message) {
+  var ctx = canvas.getContext('2d');
+  ctx.save();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.font = '18pt Calibri';
+  ctx.fillStyle = 'black';
+  ctx.fillText(message, 10, 25);
+  ctx.restore();
+}
+function getMousePos(canvas, evt) {
+  // necessary to take into account CSS boudaries
+  var rect = canvas.getBoundingClientRect();
+  return {
+     x: evt.clientX - rect.left,
+     y: evt.clientY - rect.top
+  };
+}
+
+example of object following the mouse in the canvasvar canvas, ctx, width, height;
+var rect = {x:40, y:40, rayon: 30, width:80, height:80, v:1};
+var mousepos = {x:0, y:0};
+ 
+function init() {
+    canvas = document.querySelector("#myCanvas");
+    ctx = canvas.getContext('2d');
+    width = canvas.width;
+    height = canvas.height;
+    canvas.addEventListener('mousemove', function (evt) {
+       mousepos = getMousePos(canvas, evt);
+    }, false);
+    mainloop();
+}
+ 
+function mainloop() {
+   // 1) clear screen
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   // 2) move object
+    var dx = rect.x - mousepos.x;
+    var dy = rect.y - mousepos.y;
+    var angle = Math.atan2(dy, dx);
+    rect.x -= rect.v*Math.cos(angle);
+    rect.y -= rect.v*Math.sin(angle);
+    // 3) draw object
+    drawRectangle(angle);
+    // request new frame
+    window.requestAnimationFrame(mainloop);
+}
+function drawRectangle(angle) {
+   ctx.save();
+   // These two lines move the coordinate system
+   ctx.translate(rect.x, rect.y);
+   ctx.rotate(angle);
+   // recenter the coordinate system in the middle
+   // the rectangle. Like that it will rotate around
+   // this point instead of top left corner
+   ctx.translate(-rect.width/2, -rect.height/2);
+   ctx.fillRect(0, 0, rect.width, rect.height);
+   ctx.restore();
+}
+ 
+function getMousePos(canvas, evt) {
+   // necessary to take into account CSS boudaries
+   var rect = canvas.getBoundingClientRect();
+   return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+   };
+}
+==========================================================
+timebased animation method 1 javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8 />
+  <title>Move rectangle using time based animation</title>
+  <script>
+    var canvas, ctx;
+    var width, height;
+    var x, y, incX; // incX is the distance from the previously drawn
+                    // rectangle to the new one
+    var speedX; // speedX is the target speed of the rectangle, in pixels/s
+    // for time based animation
+    var now, delta;
+    var then = new Date().getTime();
+    // Called after the DOM is ready (page loaded)
+    function init() {
+      // Init the different variables
+      canvas = document.querySelector("#mycanvas");
+      ctx = canvas.getContext('2d');
+      width = canvas.width;
+      height = canvas.height;
+      x=10; y = 10;
+      // Target speed in pixels/second, try with high values, 1000, 2000...
+      speedX = 200;
+      // Start animation
+     animationLoop();
+   }
+   function animationLoop() {
+     // Measure time
+     now = new Date().getTime();
+ 
+     // How long between the current frame and the previous one?
+     delta = now - then;
+     //console.log(delta);
+     // Compute the displacement in x (in pixels) in function of the time elapsed and
+     // in function of the wanted speed
+     incX = calcDistanceToMove(delta, speedX);
+     // an animation involves: 1) clear canvas and 2) draw shapes,
+     // 3) move shapes, 4) recall the loop with requestAnimationFrame
+     // clear canvas
+     ctx.clearRect(0, 0, width, height);
+     ctx.strokeRect(x, y, 10, 10);
+     // move rectangle
+     x += incX;
+     // check collision on left or right
+     if((x+10 >= width) || (x <= 0)) {
+        // cancel move + inverse speed
+        x -= incX;
+        speedX = -speedX;
+     }
+     // Store time
+     then = now;
+     requestAnimationFrame(animationLoop);
+ }
+ // We want the rectangle to move at a speed given in pixels/second
+ // (there are 60 frames in a second)
+ // If we are really running at 60 frames/s, the delay between
+ // frames should be 1/60
+ // = 16.66 ms, so the number of pixels to move = (speed * del)/1000.
+ // If the delay is twice as
+ // long, the formula works: let's move the rectangle for twice as long!
+ var calcDistanceToMove = function(delta, speed) {
+     return (speed * delta) / 1000;
+ }
+ </script>
+</head>
+<body onload="init();">
+ <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+</body>
+</html>
+========================================================
+method 3 recommended.
+using requestAnimationFrame callback
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Time based animation using the parameter of the requestAnimationFrame callback</title>
+ <script>
+   var canvas, ctx;
+   var width, height;
+   var x, y, incX; // incX is the distance from the previously drawn rectangle
+                   // to the new one
+   var speedX;     // speedX is the target speed of the rectangle in pixels/s
+   // for time based animation
+   var now, delta=0;
+   // High resolution timer
+   var oldTime = 0;
+   // Called after the DOM is ready (page loaded)
+   function init() {
+     // init the different variables
+     canvas = document.querySelector("#mycanvas");
+     ctx = canvas.getContext('2d');
+     width = canvas.width;
+     height = canvas.height;
+     x=10; y = 10;
+     // Target speed in pixels/second, try with high values, 1000, 2000...
+     speedX = 200;
+     // Start animation
+     requestAnimationFrame(animationLoop);
+   }
+   function animationLoop(currentTime) {
+     // How long between the current frame and the previous one?
+     delta = currentTime - oldTime;
+     // Compute the displacement in x (in pixels) in function of the time elapsed and
+     // in function of the wanted speed
+     incX = calcDistanceToMove(delta, speedX);
+     // clear canvas
+     ctx.clearRect(0, 0, width, height);
+     ctx.strokeRect(x, y, 10, 10);
+     // move rectangle
+     x += incX;
+     // check collision on left or right
+     if(((x+10) > width) || (x < 0)) {
+       // inverse speed
+       x -= incX;
+       speedX = -speedX;
+     }
+     // Store time
+     oldTime = currentTime;
+     // asks for next frame
+     requestAnimationFrame(animationLoop);
+   }
+   var calcDistanceToMove = function(delta, speed) {
+     return (speed * delta) / 1000;
+   }
+ </script>
+</head>
+<body onload="init();">
+ <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+</body>
+</html>
+
+===============================================
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset=utf-8 />
+ <title>Set framerate using a high resolution timer</title>
+ </head>
+ <body>
+ <p>This example measures and sums deltas of time between consecutive frames of animation. It includes a <code>setFrameRateInFramesPerSecond</code> function you can use to reduce the number of frames per second of the main animation.</p>
+ 
+ <canvas id="myCanvas" width="700" height="350">
+ </canvas>
+ <script>
+   var canvas = document.querySelector("#myCanvas");
+   var ctx = canvas.getContext("2d");
+   var width = canvas.width, height = canvas.height;
+   var lastX = width * Math.random();
+   var lastY = height * Math.random();
+   var hue = 0;
+ 
+   // Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE
+   // THE RESULT. Try 2 frames/s, 10 frames/s, 60 frames/s Normally there
+   // should be a limit of 60 frames/s in the browser's implementations.
+   setFrameRateInFramesPerSecond(60);
+ 
+  // for time based animation. DelayInMS corresponds to the target framerate
+  var now, delta, delayInMS, totalTimeSinceLastRedraw = 0;
+ 
+  // High resolution timer
+  var then = performance.now();
+ 
+  // start the animation
+  requestAnimationFrame(mainloop);
+ 
+  function setFrameRateInFramesPerSecond(frameRate) {
+    delayInMs = 1000 / frameRate;
+  }
+ 
+  // each function that is going to be run as an animation should end by
+  // asking again for a new frame of animation
+  function mainloop(time) {
+    // Here we will only redraw something if the time we want between frames has
+    // elapsed
+    // Measure time with high resolution timer
+    now = time;
+ 
+    // How long between the current frame and the previous one?
+    delta = now - then;
+    // TRY TO UNCOMMENT THIS LINE AND LOOK AT THE CONSOLE
+    // console.log("delay = " + delayInMs + " delta = " + delta + " total time = " +
+    // totalTimeSinceLastRedraw);
+ 
+    // If the total time since the last redraw is > delay corresponding to the wanted
+    // framerate, then redraw, else add the delta time between the last call to line()
+    // by requestAnimFrame to the total time..
+    if (totalTimeSinceLastRedraw > delayInMs) {
+       // if the time between the last frame and now is > delay then we
+       // clear the canvas and redraw
+ 
+       ctx.save();
+ 
+       // Trick to make a blur effect: instead of clearing the canvas
+       // we draw a rectangle with a transparent color. Changing the 0.1
+       // for a smaller value will increase the blur...
+       ctx.fillStyle = "rgba(0,0,0,0.1)";
+       ctx.fillRect(0, 0, width, height);
+ 
+       ctx.translate(width / 2, height / 2);
+       ctx.scale(0.9, 0.9);
+       ctx.translate(-width / 2, -height / 2);
+ 
+       ctx.beginPath();
+       ctx.lineWidth = 5 + Math.random() * 10;
+       ctx.moveTo(lastX, lastY);
+       lastX = width * Math.random();
+       lastY = height * Math.random();
+ 
+       ctx.bezierCurveTo(width * Math.random(),
+                         height * Math.random(),
+                         width * Math.random(),
+                         height * Math.random(),
+                         lastX, lastY);
+ 
+       hue = hue + 10 * Math.random();
+       ctx.strokeStyle = "hsl(" + hue + ", 50%, 50%)";
+       ctx.shadowColor = "white";
+       ctx.shadowBlur = 10;
+       ctx.stroke();
+ 
+       ctx.restore();
+ 
+       // reset the total time since last redraw
+       totalTimeSinceLastRedraw = 0;
+    } else {
+       // sum the total time since last redraw
+       totalTimeSinceLastRedraw += delta;
+    }
+ 
+    // Store time
+    then = now;
+ 
+    // request new frame
+    requestAnimationFrame(mainloop);
+  }
+ </script>
+ </body>
+</html>
+-------------
+animate the bouncing ball
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Bouncing rectangle with high resolution timer and adjustable frame rate</title>
+ <script>
+   var canvas, ctx;
+   var width, height;
+   var x, y, incX; // incX is the distance from the previously drawn rectangle
+                   // to the new one
+   var speedX; // speedX is the target speed of the rectangle in pixels/s
+   // for time based animation, DelayInMS corresponds to the target frame rate
+   var now, delta, delayInMS, totalTimeSinceLastRedraw=0;
+   // High resolution timer
+   var then = performance.now();
+   // Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE
+   // THE RESULT. Try 2 frames/s, 10 frames/s, 60, 100 frames/s Normally there
+   // should be a limit of 60 frames/s in the browser's implementations, but you can 
+   // try higher values
+   setFrameRateInFramesPerSecond(25);
+   function setFrameRateInFramesPerSecond(framerate) {
+     delayInMs = 1000 / framerate;
+   }
+   // Called after the DOM is ready (page loaded)
+   function init() {
+     // init the different variables
+     canvas = document.querySelector("#mycanvas");
+     ctx = canvas.getContext('2d');
+     width = canvas.width;
+     height = canvas.height;
+     x=10; y = 10;
+     // Target speed in pixels/second, try with high values, 1000, 2000...
+     speedX = 2000;
+     // Start animation
+     requestAnimationFrame(animationLoop)
+   }
+   function animationLoop(time) {
+     // Measure time with high resolution timer
+     now = time;
+ 
+     // How long between the current frame and the previous one?
+     delta = now - then;
+     if(totalTimeSinceLastRedraw > delayInMs) {
+       // Compute the displacement in x (in pixels) in function of the time elapsed
+       // since the last draw and
+       // in function of the wanted speed. This time, instead of delta we
+       // use totalTimeSinceLastRedraw as we're not always drawing at
+       // each execution of mainloop
+       incX = calcDistanceToMove(totalTimeSinceLastRedraw, speedX);
+       // an animation involves: 1) clear canvas and 2) draw shapes,
+       // 3) move shapes, 4) recall the loop with requestAnimationFrame
+       // clear canvas
+       ctx.clearRect(0, 0, width, height);
+       ctx.strokeRect(x, y, 10, 10);
+       // move rectangle
+       x += incX;
+      // check collision on left or right
+      if((x+10 >= width) || (x <= 0)) {
+        // cancel move + inverse speed
+        x -= incX;
+        speedX = -speedX;
+      }
+      // reset the total time since last redraw
+      totalTimeSinceLastRedraw = delta;
+   } else {
+     // sum the total time since last redraw
+     totalTimeSinceLastRedraw += delta;
+   }
+   // Store time
+   then = now;
+ 
+   // animate. 
+   requestAnimationFrame(animationLoop);
+ }
+ var calcDistanceToMove = function(delta, speed) {
+    return (speed * delta) / 1000;
+ }
+ </script>
+</head>
+<body onload="init();">
+ <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+</body>
+</html>
+======================================
+
+time based animation// Inits
+window.onload = function init() {
+  var game = new GF();
+  game.start();
+};
+
+
+// GAME FRAMEWORK STARTS HERE
+var GF = function(){
+    // Vars relative to the canvas
+    var canvas, ctx, w, h; 
+
+    // vars for counting frames/s, used by the measureFPS function
+    var frameCount = 0;
+    var lastTime;
+    var fpsContainer;
+    var fps; 
+    // for time based animation
+    var delta, oldTime = 0;
+  
+    // vars for handling inputs
+    var inputStates = {};
+  
+    // The monster !
+    var monster = {
+      x:10,
+      y:10,
+      speed:100, // pixels/s this time !
+    };
+      // We want the rectangle to move at speed pixels/s (there are 60 frames in a second)
+    // If we are really running at 60 frames/s, the delay between frames should be 1/60
+    // = 16.66 ms, so the number of pixels to move = (speed * del)/1000. If the delay is twice
+    // longer, the formula works : let's move the rectangle twice longer!
+  var calcDistanceToMove = function(delta, speed) {
+    //console.log("#delta = " + delta + " speed = " + speed);
+    return (speed * delta) / 1000; 
+  };
+  
+    var measureFPS = function(newTime){
+      
+         // test for the very first invocation
+         if(lastTime === undefined) {
+           lastTime = newTime; 
+           return;
+         }
+      
+        //calculate the difference between last & current frame
+        var diffTime = newTime - lastTime; 
+
+        if (diffTime >= 1000) {
+            fps = frameCount;    
+            frameCount = 0;
+            lastTime = newTime;
+        }
+
+        //and display it in an element we appended to the 
+        // document in the start() function
+       fpsContainer.innerHTML = 'FPS: ' + fps; 
+       frameCount++;
+    };
+  
+     // clears the canvas content
+     function clearCanvas() {
+       ctx.clearRect(0, 0, w, h);
+     }
+  
+     // Functions for drawing the monster and maybe other objects
+     function drawMyMonster(x, y) {
+       // draw a big monster !
+       // head
+   
+       // save the context
+       ctx.save();
+  
+       // translate the coordinate system, draw relative to it
+       ctx.translate(x, y);
+  
+       // (0, 0) is the top left corner of the monster.
+       ctx.strokeRect(0, 0, 100, 100);
+  
+       // eyes
+       ctx.fillRect(20, 20, 10, 10);
+       ctx.fillRect(65, 20, 10, 10);
+  
+       // nose
+       ctx.strokeRect(45, 40, 10, 40);
+  
+       // mouth
+       ctx.strokeRect(35, 84, 30, 10);
+  
+       // teeth
+       ctx.fillRect(38, 84, 10, 10);
+       ctx.fillRect(52, 84, 10, 10);
+  
+      // restore the context
+      ctx.restore(); 
+    }
+  
+  function timer(currentTime) {
+    var delta = currentTime - oldTime;
+    oldTime = currentTime;
+    return delta;
+    
+  }
+    var mainLoop = function(time){
+        //main function, called each frame 
+        measureFPS(time);
+      
+        // number of ms since last frame draw
+        delta = timer(time);
+      
+        // Clear the canvas
+        clearCanvas();
+       
+        // draw the monster
+        drawMyMonster(monster.x, monster.y);
+      
+        // Check inputs and move the monster
+        updateMonsterPosition(delta);
+ 
+        // call the animation loop every 1/60th of second
+        requestAnimationFrame(mainLoop);
+    };
+  
+
+    function updateMonsterPosition(delta) {
+      monster.speedX = monster.speedY = 0;
+        // check inputStates
+        if (inputStates.left) {
+            monster.speedX = -monster.speed;
+        }
+        if (inputStates.up) {
+           monster.speedY = -monster.speed;
+        }
+       if (inputStates.right) {
+            monster.speedX = monster.speed;
+        }
+        if (inputStates.down) {
+            monster.speedY = monster.speed;
+        } 
+        if (inputStates.space) {
+        }
+        if (inputStates.mousePos) { 
+        }
+       if (inputStates.mousedown) { 
+            monster.speed = 500;
+        } else {
+          // mouse up
+          monster.speed = 100;
+        }
+      
+        // Compute the incX and inY in pixels depending
+        // on the time elasped since the last redraw
+        monster.x += calcDistanceToMove(delta, monster.speedX);
+        monster.y += calcDistanceToMove(delta, monster.speedY);
+   }
+  
+  
+    function getMousePos(evt) {
+        // necessary to take into account CSS boudaries
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+      
+    var start = function(){
+        // adds a div for displaying the fps value
+        fpsContainer = document.createElement('div');
+        document.body.appendChild(fpsContainer);
+      
+        // Canvas, context etc.
+        canvas = document.querySelector("#myCanvas");
+  
+        // often useful
+        w = canvas.width; 
+        h = canvas.height;  
+  
+        // important, we will draw with this object
+        ctx = canvas.getContext('2d');
+        // default police for text
+        ctx.font="20px Arial";
+      
+       //add the listener to the main, window object, and update the states
+      window.addEventListener('keydown', function(event){
+          if (event.keyCode === 37) {
+             inputStates.left = true;
+          } else if (event.keyCode === 38) {
+             inputStates.up = true;
+          } else if (event.keyCode === 39) {
+             inputStates.right = true;
+          } else if (event.keyCode === 40) {
+             inputStates.down = true;
+          }  else if (event.keyCode === 32) {
+             inputStates.space = true;
+          }
+      }, false);
+
+      //if the key will be released, change the states object 
+      window.addEventListener('keyup', function(event){
+          if (event.keyCode === 37) {
+             inputStates.left = false;
+          } else if (event.keyCode === 38) {
+             inputStates.up = false;
+          } else if (event.keyCode === 39) {
+             inputStates.right = false;
+          } else if (event.keyCode === 40) {
+             inputStates.down = false;
+          } else if (event.keyCode === 32) {
+             inputStates.space = false;
+          }
+      }, false);
+      
+      // Mouse event listeners
+      canvas.addEventListener('mousemove', function (evt) {
+          inputStates.mousePos = getMousePos(evt);
+      }, false);
+
+      canvas.addEventListener('mousedown', function (evt) {
+            inputStates.mousedown = true;
+            inputStates.mouseButton = evt.button;
+      }, false);
+
+      canvas.addEventListener('mouseup', function (evt) {
+          inputStates.mousedown = false;
+      }, false);      
+
+
+        // start the animation
+        requestAnimationFrame(mainLoop);
+    };
+
+    //our GameFramework returns a public API visible from outside its scope
+    return {
+        start: start
+    };
+};
+
+=================================================
+function testCollisionWithWalls(ball) {
+  // left
+  if (ball.x < ball.radius) {
+     ball.x = ball.radius;
+     ball.angle = -ball.angle + Math.PI;
+  }
+  // right
+  if (ball.x > width - (ball.radius)) {
+    ball.x = width - (ball.radius);
+    ball.angle = -ball.angle + Math.PI;
+  }
+  // up
+  if (ball.y < ball.radius) {
+    ball.y = ball.radius;
+    ball.angle = -ball.angle;
+  }
+  // down
+  if (ball.y > height - (ball.radius)) {
+    ball.y = height - (ball.radius);
+    ball.angle =-ball.angle;
+  }
+}
+// constructor function for balls
+function Ball(x, y, angle, v, diameter) {
+  this.x = x;
+  this.y = y;
+  this.angle = angle;
+  this.v = v;
+  this.radius = diameter/2;
+  this.draw = function() {
+   ...
+  };
+  this.move = function() {
+   // add horizontal increment to the x pos
+   // add vertical increment to the y pos
+   this.x += this.v * Math.cos(this.angle);
+   this.y += this.v * Math.sin(this.angle);
+  };
+}
+============================================

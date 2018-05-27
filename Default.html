@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> The Xpens company app.
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</title>
+<script> 
+var x = document.getElementById("demo");
+
+</script>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"> 
+<style>
+body {
+    background-color: #dcffcc;
+           
+}
+h1 {font-size: 64px;}
+</style>
+</head>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<center>
+<h1 class="w3-jumbo w3-teal"> The Xpens collection</h1>
+<li>
+<form action="expenses/xpense-plain.html" method="get" type="button" style="cursor:pointer" width=95%
+class="w3-xxxlarge">
+<button > Enter expenses </button></li><br><br>
+</form>
+<li><form action="library/libraryhdr.html" method="get" type= "button" class="w3-xxxlarge" >
+<button> My Library </button></li>
+</form> <br><br>
+</form>
+<li><form action="https://www.xpens.co.uk/grafitti/grafittiPutDB.html" method="get" type= "button" class="w3-xxxlarge">
+<button> Write Graffiti </button></li><br><br>
+</form>
+<li><form action="gym/gymhdr.html" method="get" type= "button" class="w3-xxxlarge" >
+<button> Gym </button></li>
+</form> <br><br>
+<li><form action="myeating/eats.html" method="get" type= "button" class="w3-xxxlarge" >
+<button> Food Tracker </button></li>
+</form> <br><br>
+<li><form action="blockgame-working/BlockGame.html" method="get" type= "button" class="w3-xxxlarge">
+<button> The Button game</button></li>
+
+ </form>
+
+</center>
+ <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+</body>
+
+<footer>
+	<p id="demo"></p>
+</footer>

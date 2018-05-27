@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "Books Read" content="my library 1.0" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Keywords" content="boek, lees, reading, book, books">
+<meta name="Description" content="Help keeping track of books read" >
+<meta name="copyright" content="Copyright, 2016 NSauer">
+
+<title> Keeping track of books read</title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/gym.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+<style>
+body {
+    background-color: #dcffcc;        
+}
+form {border: 3px solid #659960;
+}
+@media screen and (max-width: 300px) {
+  span.psw{
+    display: block;
+    float: none;
+  }
+  .cancelbtn{
+    width: 100%;
+  }
+};
+.wrapper{
+  grid-template-colums: 1fr 2fr 1fr
+  display:grid;
+  justify-items:centre;
+  grid-row-gap:1em;
+}
+
+.wrapper > div{
+  padding:1em;
+  justify-items:centre;
+
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"> 
+</head>
+<body  onload="init();" background-color: #dcffcc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+var a = 0;
+var wstoday = "2016/01/01";
+
+</script>
+<body>
+<div class="wrapper">
+<h1 class="w3-xxlarge w3-teal" ><center>Books read</center></h1>
+
+<div>
+  <centre>
+<form action="libraryadd.php" method="POST" onSubmit="window.location.reload()" id="form1" name="gymmy" >
+<br><center>Username <input type="text" id="userid" name="username" placeholder = "User name" size="20">
+<br><br>Title <input type="text" name="bookName" id="bookNameidtd" placeholder="Title" size="50">
+<br><br>Author <input type="text" name="authorname" id="authoridtd" placeholder="Author" size="50">
+<br><br>Rating <input type="text" name="ratingname" id="ratingidtd" size="2"> rating 1=bad, 10=Keeper
+<br><br>Description <input type="text" name="descripname" id="descripidtd" size=50 cols=5 rows=5 placeholder=" A short description/comment">  
+<br><br>Date <input type="date" name="datename" id="dateidtd">
+<input type="reset"></input></td>
+<br><br><input type="submit" value="Add/Update" class="w3-xxlarge w3-btn w3-centre" id="saveMyData"   >
+<br><br><button type="w3-button" onclick="searchme()" class="w3-xxlarge" >Search</button></td>
+</center>
+</form>
+
+
+</center>
+</div>
+<center>Total books read: <input type ='text' name="extotal" id="total" size=10% disabled 
+class="fontAmt"><br></center><br>
+<center><button type= "button" onclick="emaillocal()" disabled hidden >Email list  </button><br>
+
+<p class="w3-center">
+<form action="librarylist.php" method="get" type="button" style="cursor:pointer" name="histo"
+ class="w3-container">
+<button type="w3-button" class="w3-xxlarge cancelbtn"> List of books </button><br><br>
+</form>
+</p>
+<button type="w3-button" value="Finish" class="w3-xxlarge cancelbtn" 
+	onClick="history.go(-1);return true;">Exit</button>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+  function init(){
+    
+  }
+</script>
+
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to the cloud.</li>	
+	</u1>
+	</div>
+	<p id="demo"></p>
+</nav>
+</head>

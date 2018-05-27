@@ -1,0 +1,141 @@
+$con=mysqli_connect("localhost","mydb1620","Mydb_16_20","mydb16");
+ learning
+save the html as index.php??
+<?php
+
+$name="nards";
+echo "hello" + $name;
+
+// variables
+$var = "this is a string";
+$int = 8;
+$loggedin = true;
+if ($loggedin){
+	echo "youare logged in";
+} else{
+	echo "please Log in";
+}
+
+?>
+<?php
+	session_start();
+	include 'dbh.php';
+?>
+<!DOCTYPE html>
+<html>
+head><title> hello</title></head>
+<body>
+
+<body>
+<form>
+login
+<form action="login.php" method="POST">
+	enter your username <input name="uid" type="text" placeholder="username"><br>
+	enter your password <input name="pwd" type="text" placeholder="Password"><br>
+	<button type"submit">LOGIN</button>
+</form>
+<?php
+	if(isset($_SESSION['id'])){
+	echo $_SESSION['id'];
+	}else{
+	echo "your not logged in"
+	}
+?>
+<br><br><br>
+<form action="process.php" method="POST">
+	enter your name <input name="first" type="text" placeholder="firat name"><br>
+	enter your lastname <input name="last" type="text" placeholder="last name"><br>
+	enter your username <input name="uid" type="text" placeholder="username"><br>
+	enter your password <input name="pwd" type="text" placeholder="Password"><br>
+	<button type"submit">SIGN UP</button>
+
+</form>
+<form action="logout.php">
+<button> LOG OUT </button>
+
+</body>
+
+</html>
+
+
+create the file process.php
+<html>
+<head> <title>helo name</title></head>
+<body>
+<?php
+$name = $_POST["name"];
+echo "hello" . $name;
+///array
+$people = array("ad", "dre", "pot");
+foreach ($people as $person) {
+	echo $person.' ';
+}
+?>
+</body>
+</html>
+
+TO CREATTE database use the sql create 
+-------------------------------
+
+SIGNUP.PHP
+<?php
+include 'dbh.php';
+$first=$POST['first'];
+$last=$POST['last'];
+$uid=$POST['uid'];
+$pwd=$POST['[wd'];
+
+
+echo $first;
+echo $last;
+echo $uid;
+echo $pwd;
+
+$sql = "INSERT INTO user(first, last, uid, pwd) VALUES ('$first', '$last', '$uid', '$pwd')";
+$result = $conn->query($sql);
+
+header("Location: index.php");
+create dbh.php database handler  
+<?php
+$conn = mysqli_connect("localhost", "root", "root", "mydb16");
+if (!$conn){
+	die("connectio failed: ".mysqli_connect_error());
+}
+--------------------------
+login.php
+<?php
+include 'dbh.php';
+$uid=$POST['uid'];
+$pwd=$POST['[Pwd'];
+
+echo $uid;
+echo $pwd;
+
+$sql = "SELECT * FROM user WHERE uid='$uid' and $pwd='$pwd'";
+if(!$row = $results->fetch_assoc())
+{ 
+echo "not signed in";
+	
+}else{
+	echo "logged in";
+	//start a session
+	$_SESSION['id'] = $row['id']
+}
+//remove this from the login.php  to allow  the messages to display, in the html before
+// the <!DOCTYPE html> add some php <?php ?> to test if the session is active
+header("Location: index.php");
+-------------------------------------
+logout.php
+<?php
+session_start();
+session_destry();
+header("Location: index.php");
+
+?>
+====================================
+create dbh.php database handler  
+<?php
+$conn = mysqli_connect("localhost", "root", "root", "mydb16");
+if (!$conn){
+	die("connectio failed: ".mysqli_connect_error());
+}

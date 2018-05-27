@@ -1,0 +1,23 @@
+To do
+1) code to be generated before message is send. use the date time and a character A-z.  read the table to make sure a duplicate does noet exist.
+2) save the code, time to local storage and table
+3) create a mail message and send to the receiver, add the code generated , add the reference to terms and conditions page
+4) add a user login with a email address stored localy. this is to use the email when sending the message. if possible encrypt this. maybe use a terms and condition page acceptanc button when first entering the mail address, hacker can hack local storage.
+5) create a terms and condition page to accept.
+
+<script type="text/javascript" src="XpensApp.js"></script>
+
+
+PARK RUN APP.
+options
+1) capture date, time run. 
+2) distribute parkrun information, geolocation, attendance record, dates closed, contact person.
+
+Grafitti app
+1)adapt all the code in javascript/gtafitti to run this app.
+2) add to default.html in /javascript --> done
+2a) try to run grafitti from its own directory
+
+3) create a new table fot the grafitti app. 
+4) add php table apdate to grafitti
+5) finish the retrieval of the graffiti message app. based on getmessae without a code, everyone can read the grafitti at the location. restruct to reading 3 per day. allow buying more reads with grafi coins.

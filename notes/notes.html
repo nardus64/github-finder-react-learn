@@ -1,0 +1,42 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+      <div type="container" align="center">
+      <center>
+		<h1 class="w3-jumbo w3-teal"> My Notes </h1>
+		<p id="demo" hidden >write notes here<br> 
+		<h2 class="w3-xxlarge w3-teal"> Enter your notes</h2>
+		<form action="notes.php" method="post" onSubmit="window.location.reload()" id="form1">
+		<input type="text" id="txtName" placeholder="Name it"
+		  name="locname" class="w3-xxlarge" disabled><br><br>
+		<input type="text" name="notestext" rows=5 cols=35 id="lextxtarea" size="20" maxlength="200" placeholder="Write your graffiti here" class="w3-xxlarge" disabled ><br>  <br>
+		<input type="text" id="graflong" name="graflo" hidden> 
+		<input type="text" id="graflat" name="grafla" hidden>
+		<p>
+		<br><input type="submit" value="Insert" class="w3-xxlarge w3-btn" id="submit1" disabled>
+		<label>  ......     </label>
+		<input type="reset" class="w3-xxlarge w3-btn"> <br><br>
+		</form>
+
+      </div>
+    </body>
+  </html>
+<footer>
+<div type="container">
+Main Menu
+</div>
+</footer>

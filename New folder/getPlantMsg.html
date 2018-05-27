@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Message planter app.
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</title>
+<link rel="stylesheet" href="gmsgp.css">
+<script type="text/javascript" src="GetmsgpDB.js"></script>
+<script>
+var x = document.getElementById("demo");
+</script>
+<head>
+<style>
+body {
+    background-color: #dcffcc;       
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: #dcffcc;
+    }
+}
+</style>
+<meta charset="utf-8">
+  <title>Read a secret message.</title>
+</head>
+<body>
+   <center>
+
+   <h1> Receive secret messages</h1>
+ 	<h2> Enter the secret code</h2>
+<form>
+<input type="email" placeholder="Enter secret code here." id="codeAd" class="textcss2">
+<br>	<br> <br>
+</form>
+ 	<button id="listbut" onclick="Getsecret()" class = "but1">View</button><br><br> 
+<h2> Message received</h2>
+ 	<textarea  name="msgtext" rows=10 cols=50 id="showMessage" placeholder="No Message" class="textcss2" ></textarea><br> <br> 
+ 	 <input type="button" VALUE="Exit" class="but1"
+	onClick="history.go(-1);return true;">
+	<p id="demo"></p>
+   </center>
+
+ </body>

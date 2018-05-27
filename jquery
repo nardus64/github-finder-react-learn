@@ -1,0 +1,68 @@
+jquery
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   // jQuery methods go here...
+});
+$(document).ready(function(){
+    $("button").click(function(){
+    	$("#test").hide();
+        $(".test").hide();
+        $("p.intro")	Selects all <p> elements with class="intro"
+    });
+});
+</script>
+</head>
+
+All selectors in jQuery start with the dollar sign and parentheses: $().
+The #id Selector - specific element  id="test"
+The .class Selector -
+when outside of the html refer to the jquery .js file
+<script src="my_jquery_functions.js"></script>
+
+Get Content - text(), html(), and val()
+Three simple, but useful, jQuery methods for DOM manipulation are:
+
+text() - Sets or returns the text content of selected elements
+html() - Sets or returns the content of selected elements (including HTML markup)
+val() - Sets or returns the value of form fields
+
+external file
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){
+            if(statusTxt == "success")
+                alert("External content loaded successfully!");
+            if(statusTxt == "error")
+                alert("Error: " + xhr.status + ": " + xhr.statusText);
+        });
+    });
+});
+</script>
+
+database access
+$.get()
+$.get(URL,callback);
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.get("demo_test.asp", function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    });
+});
+</script>
+
+$.post(URL,data,callback);
+$("button").click(function(){
+    $.post("demo_test_post.asp",
+    {
+        name: "Donald Duck",
+        city: "Duckburg"
+    },
+    function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});

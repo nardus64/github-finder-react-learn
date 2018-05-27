@@ -1,0 +1,11 @@
+git c:\nardus\[package-expenses]
+create package.json using 'npm init'
+register with npm  - use valid email = npm adduser
+package.json info
+expenses app = Expenses
+github expenses 
+	git clone git@github.com:user/expenses-package.git
+	name = expenses
+	description: capture expenses 
+	
+gui for mongodb: 	https://www.mongodb.com/download-center#compass

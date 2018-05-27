@@ -1,0 +1,21 @@
+javascript manual
+#BOX-SIZING https://css-tricks.com/box-sizing/
+draw multiple boxes in the screen or 1 containing the page.
+Using the box-sizing in the css:
+This draw a box around the conyent.
+used as box-sizing :  content-box 
+this draw a line around the conten in the page.
+use on <div> level can add the clor, size (width, height or min and max using box-sizing : border-box)
+in css use div.xxxxx {} to define the specific for <div class="xxxxx" in the html
+
+#flexbox https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+more flexible box sizing - work for fluid design.
+
+#background
+in the css or in the <body>  <style> background-color : lightgreen; </style>
+// this will give a default screen color.
+// bacgrouund can have background-image, size, position, and more in css3
+
+# secure sites https ssl  https://letsencrypt.org/ for free ssl cert.
+need the type (apache) of webserver sw and the OS - godaddy???
+lots of info here: https://www.chromium.org/Home/chromium-security/education/tls#TOC-TLS-Resources-for-Developers-and-Site-Operators

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "expenses" content="dayly-expenses 1.0">
+<meta name="Keywords" content="expense, finance, money, uitgawes, spending">
+<meta name="Description" content="Help keeping track of daily expenses saving values to local device." >
+<meta name="copyright" content="Copyright, 2016 NSauer">
+
+<title> Daily expenses </title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="xpens-plain.css">
+<script type="text/javascript" src="xpenseJs.js"></script>
+<style>
+body {
+    background-color: #dcffcc;        
+}
+</style>
+</head>
+<body  onload="init();" background-color: #dcffcc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+var a = 0;
+var wstoday = "2016/01/01";
+
+</script>
+<body>
+<div class="main">
+<h2><center>Daily expenses</center></h2>
+<center>Date: <input type="date" name="exDate" id="lexdate" font="30px" class="fontdat"><br>
+Amount: <input type = "number" name="exNum" id="lexnum" min="-1000"  class="fontAmt"></input> <br>
+Subtract this amount:<input type = "checkbox" name = "reverse" id="lexSign"  class="fonttick">  </input><br><br>
+Description: <input type ='text' name="extxt" id="lextext" size=20% class="fontdesc">
+</center><br><br>
+
+<center><button onclick="saveme()" class="fontsave">Save</button><br><br><br>
+Total: <input type ='text' name="extotal" id="total" size=10% disabled 
+class="fontAmt"><br></center>
+<center><button type= "button" onclick="emaillocal()" disabled hidden >Email list  </button><br>
+<form action="xpense-trans.html" method="get" type="button" style="cursor:pointer" class="font3">
+<button type="button1"> History </button>
+<button type="button1" VALUE="Finish"
+	onClick="history.go(-1);return true;">Exit</button>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to local storage.</li>	
+	</u1>
+	</div>
+	<p id="demo"></p>
+</nav>
+</head>

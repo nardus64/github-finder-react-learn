@@ -1,0 +1,23 @@
+{
+  "name": "stoptheblock",
+
+  "version": "1.0.0",
+ 
+ "description": "win the most dots agains the computer",
+ 
+ "main": "index.js",
+ 
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+ 
+"scripts": {
+"start" :"nf start" },
+ "keywords": ["blocks"],
+ 
+ "author": "Nardus64@gmail.com",
+ 
+ "license": "ISC",
+ "engines":{"node" :"4.2.2"}
+
+}

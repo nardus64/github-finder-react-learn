@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title> GO game.
+</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="blockstyle3.css">
+<script type="text/javascript" src="blockjavascript3.js"></script>
+<script type="text/javascript" src="blockjavascript3a.js"></script>
+</head>
+<body  onload="init();" background-color: #cccccc; >
+<script>
+const blocksize = 50;
+var a = 0;
+var colorsaved = '#ffae00';
+const randomClickNo = 5;
+var blocks =
+[[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0]];
+//var blocks=[[]];
+/*var blocks1=[];
+var blocks2=[];
+var blocks3=[];
+var blocks4=[];
+var blocks5=[];
+var blocks6=[];
+var blocks7=[];
+var blocks8=[];
+var blocks9=[];*/
+var users = 1;
+var compset = 'N';
+var arrayNo = 3;
+var arrayCol = 0;
+var moveblocked = 'N';
+var teller = -1;
+var arrayTel = -1;
+
+var compNorth = 0;
+var compSouth = 0;
+var compEast = 0;
+var compWest = 0;
+
+var playerNorth = 0;
+var playerSouth = 0;
+var playerEast = 0;
+var playerWest = 0;
+var wonthis = 'N';
+
+	</script>
+
+
+<fieldset>
+<div id="theheader">
+
+<h3>This game is losely based on 'go'.</h3>
+<h5><p>Player start on the left and fence off as many blocks as possible.</p>
+<p> Computer start on the right and compete for the blocks.</p>
+<p> Players may not jump over a single block</p>
+<p> A single click assign the block, Game is won when the most blocks are fenced in. </p>
+</h5>
+</fieldset>
+</div>
+</header>
+<form>
+<section>
+<fieldset>
+<div  id="thegame">
+<input id="but001" type="button" value="      "
+onClick = "alertmy('001', ' bb ')" class="button button1"/>
+<input id="but002" type="button" value="     "
+onClick = "alertmy('002', ' bb ')" class="button button1"/>
+<input id="but003" type="button" value="     "
+onClick = "alertmy('003', ' bb ')" class="button button1"/>
+<input id="but004" type="button" value="     "
+onClick = "alertmy('004', ' bb ')" class="button button1"/>
+<input id="but005" type="button" value="     "
+onClick = "alertmy('005', ' bb ')" class="button button1"/>
+<input id="but006" type="button" value="     "
+onClick = "alertmy('006', ' bb ')" class="button button1"/>
+<input id="but007" type="button" value="     "
+onClick = "alertmy('007', ' bb ')" class="button button1"/>
+<br>
+<input id="but101" type="button" value="      "
+onClick = "alertmy('101', ' bb ')" class="button button1"/>
+<input id="but102" type="button" value="     "
+onClick = "alertmy('102', ' bb ')" class="button button1"/>
+<input id="but103" type="button" value="     "
+onClick = "alertmy('103', ' bb ')" class="button button1"/>
+<input id="but104" type="button" value="     "
+onClick = "alertmy('104', ' bb ')" class="button button1"/>
+<input id="but105" type="button" value="     "
+onClick = "alertmy('105', ' bb ')" class="button button1"/>
+<input id="but106" type="button" value="     "
+onClick = "alertmy('106', ' bb ')" class="button button1"/>
+<input id="but107" type="button" value="     "
+onClick = "alertmy('107', ' bb ')" class="button button1"/>
+<br>
+<input id="but201" type="button" value="      "
+onClick = "alertmy('201', ' bb')" class="button button1"/>
+<input id="but202" type="button" value="     "
+onClick = "alertmy('202', ' bb')" class="button button1"/>
+<input id="but203" type="button" value="     "
+onClick = "alertmy('203', ' bb')" class="button button1"/>
+<input id="but204" type="button" value="     "
+onClick = "alertmy('204', ' bb')" class="button button1"/>
+<input id="but205" type="button" value="     "
+onClick = "alertmy('205', ' bb')" class="button button1"/>
+<input id="but206" type="button" value="     "
+onClick = "alertmy('206', ' bb')" class="button button1"/>
+<input id="but207" type="button" value="     "
+onClick = "alertmy('207', ' bb')" class="button button1"/>
+<br>
+<input id="but301" type="button" value="      "
+onClick = "alertmy('301', ' bb')" class="button button1"/>
+<input id="but302" type="button" value="     "
+onClick = "alertmy('302', ' bb')" class="button button1"/>
+<input id="but303" type="button" value="     "
+onClick = "alertmy('303', ' bb')" class="button button1"/>
+<input id="but304" type="button" value="     "
+onClick = "alertmy('304', ' bb')" class="button button1"/>
+<input id="but305" type="button" value="     "
+onClick = "alertmy('305', ' bb')" class="button button1"/>
+<input id="but306" type="button" value="     "
+onClick = "alertmy('306', 'bb')" class="button button1"/>
+<input id="but307" type="button" value="     "
+onClick = "alertmy('307', ' bb')" class="button button1"/>
+<br>
+<input id="but401" type="button" value="start"
+onClick = "alertmy('401', ' bb')" class="button button1"/>
+<input id="but402" type="button" value="     "
+onClick = "alertmy('402', ' bb')" class="button button1"/>
+<input id="but403" type="button" value="     "
+onClick = "alertmy('403', ' bb')" class="button button1"/>
+<input id="but404" type="button" value="     "
+onClick = "alertmy('404', ' bb')" class="button button1"/>
+<input id="but405" type="button" value="     "
+onClick = "alertmy('405', ' bb')" class="button button1"/>
+<input id="but406" type="button" value="     "
+onClick = "alertmy('406', ' bb')" class="button button1"/>
+<input id="but407" type="button" value="start"
+onClick = "alertmy('407', ' bb')" class="button button1"/>
+<br>
+<input id="but501" type="button" value="     "
+onClick = "alertmy('501', ' bb')" class="button button1"/>
+<input id="but502" type="button" value="     "
+onClick = "alertmy('502', ' bb')" class="button button1"/>
+<input id="but503" type="button" value="     "
+onClick = "alertmy('503', ' bb')" class="button button1"/>
+<input id="but504" type="button" value="     "
+onClick = "alertmy('504', ' bb')" class="button button1"/>
+<input id="but505" type="button" value="     "
+onClick = "alertmy('505', ' bb')" class="button button1"/>
+<input id="but506" type="button" value="     "
+onClick = "alertmy('506', ' bb')" class="button button1"/>
+<input id="but507" type="button" value="     "
+onClick = "alertmy('507', ' bb')" class="button button1"/>
+<br>
+<input id="but601" type="button" value="     "
+onClick = "alertmy('601', ' bb')" class="button button1"/>
+<input id="but602" type="button" value="     "
+onClick = "alertmy('602', ' bb')" class="button button1"/>
+<input id="but603" type="button" value="     "
+onClick = "alertmy('603', ' bb')" class="button button1"/>
+<input id="but604" type="button" value="     "
+onClick = "alertmy('604', ' bb')" class="button button1"/>
+<input id="but605" type="button" value="     "
+onClick = "alertmy('605', ' bb')" class="button button1"/>
+<input id="but606" type="button" value="     "
+onClick = "alertmy('606', ' bb')" class="button button1"/>
+<input id="but607" type="button" value="     "
+onClick = "alertmy('607', ' bb')" class="button button1"/>
+<br>
+<input id="but701" type= "button" value="     "
+onClick = "alertmy('701', ' bb')" class="button button1"/>
+<input id="but702" type= "button" value="     "
+onClick = "alertmy('702', ' bb')" class="button button1"/>
+<input id="but703" type= "button" value="     "
+onClick = "alertmy('703', ' bb')" class="button button1"/>
+<input id="but704" type= "button" value="     "
+onClick = "alertmy('704', ' bb')" class="button button1"/>
+<input id="but705" type= "button" value="     "
+onClick = "alertmy('705', ' bb')" class="button button1"/>
+<input id="but706" type= "button" value="     "
+onClick = "alertmy('706', ' bb')" class="button button1"/>
+<input id="but707" type= "button" value="     "
+onClick = "alertmy('707', ' bb')" class="button button1"/>
+<br>
+
+<input id="but801" type= "button" value="     "
+onClick = "alertmy('801', ' bb')" class="button button1"/>
+<input id="but802" type= "button" value="     "
+onClick = "alertmy('802', ' bb')" class="button button1"/>
+<input id="but803" type= "button" value="     "
+onClick = "alertmy('803', ' bb')" class="button button1"/>
+<input id="but804" type= "button" value="     "
+onClick = "alertmy('804', ' bb')" class="button button1"/>
+<input id="but805" type= "button" value="     "
+onClick = "alertmy('805', ' bb')" class="button button1"/>
+<input id="but806" type= "button" value="     "
+onClick = "alertmy('806', ' bb')" class="button button1"/>
+<input id = "but807" type = "button" value ="      "
+onClick = "alertmy('807', ' bb')" class="button button1"/>
+<br>
+</div>
+</fieldset>
+<div id="thepay">
+<h3>Add more lives.</h3>
+<input id = "paypal" type = "button" value =" Use Paypal "
+/>
+</div>
+<br>
+</section>
+<section>
+<div id="demoblock">
+<p id='demo'></p><p id='demo2'></p>
+<form ><input Type="button" VALUE="Back to expenses"
+onClick="history.go(-1);return true;">
+</form>  
+</div>
+</section>
+</fieldset>
+
+</body>

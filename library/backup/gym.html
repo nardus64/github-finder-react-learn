@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "exercise" content="dayly-exercise-gym,  1.0">
+<meta name="Keywords" content="diet, fitness, distance, running, gym, exercise">
+<meta name="Description" content="Help keeping track of daily exercise on local device." >
+<meta name="copyright" content="Copyright, 2017 NSauer">
+
+<title> Daily gym Xercise </title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/gym.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="xpens-plain.css">
+<script type="text/javascript" src="xerciseJs.js"></script>
+<style>
+body {
+    background-color: #dcffcc;        
+}
+</style>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<body>
+<div class="main">
+<center>
+<h1>Gym training log.</h1><br>
+<form width=85%>
+Date <input type="date" name="exDate" id="lexdate" font="30px" class="fontdat"><br><br>
+Running distance: <input type = "number" name="nDistance" id="idDistance" class="fontAmt"></input> <br><br>
+Running Speed<input type = "number" name="nSpeed" id="idSpeed" class="fontAmt" ></input><br> <br>
+Running angle<input type = "number" name="nAngle" id="idAngle" class="fontAmt"></input> <br><br>
+Running time<input type = "time" name="nTime" id="idTime" class="fontAmt"></input> <br><br>
+Description<input type ='text' name="nDesc" id="idDesc" size=20% class="fontdesc">
+<br><br>
+
+<button onclick="saveme()" class="w3-btn w3-gray w3-round-large w3-xlarge" >Save</button><br><br>
+
+<form action="xercise-trans.php" method="get" type="button" 
+    style="cursor:pointer" class="w3-xxlarge">
+<button type="button1"> tran </button>
+<button type="button1" VALUE="Finish" class="w3-btn w3-red w3-round-large" 
+	onClick="history.go(-1);return true;">Exit</button>
+
+</div>
+</form>
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to local device.</li>	
+	</u1>
+	</div>
+	<p id="demo"></p>
+</nav>
+</head>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title> Expenses app.
+</title>
+
+<link rel="stylesheet" href="blockstyle2.css">
+<script type="text/javascript" src="blockjavascript3.js"></script>
+</head>
+<body  onload="init();" background-color: #cccccc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265954983768375',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+const blocksize = 200;
+var beginVarSize = 0;
+var beginVarLineH = 0;
+var beginVarlineV = 0;
+var beginspasies = 2;
+var usertotal = 0; 
+var comptotal = 0;
+var blockH1 = 0;
+var blockH2 = 202;
+var blockH3 = 404;
+var blockH4 = 600;
+
+var block1V = 0;
+var block2V = 202;
+var block3V = 404;
+var block4V =  600; //154;
+var exDatef = 0;
+var exNumf = 0;
+
+var mousePos;
+var countblock1 = 0;
+var countblock2 = 0;
+var countblock3 = 0;
+var countblock4 = 0;
+var countblock5 = 0;
+var countblock6 = 0;
+var countblock7 = 0;
+var countblock8 = 0;
+var countblock9 = 0;
+var block1Clicks = 0;
+var block2Clicks = 0;
+var block3Clicks = 0;
+var block4Clicks = 0;
+var block5Clicks = 0;
+var block6Clicks = 0;
+var block7Clicks = 0;
+var block8Clicks = 0;
+var block9Clicks = 0;
+var compmovedone = 'n';
+var a = 0;
+
+const randomClickNo = 5;
+</script>
+<fieldset><centre>
+<h3>Select the block and try to beat the computer.</h3>
+<p id="reslt1" > The number of clicks needed to win is randomly selected.<br></p>
+<p id="reslt2" > Click until the block is assigned to you or to the computer.</p></center>
+</header>
+<form>
+<section><centre>
+    <canvas id="myCanvas1" width="600" height="600" tabindex="1">
+    </canvas>
+
+	 <br>	
+Colour test : <input type="color" value="#FF00FF" id="colorChooser"/><br>
+<form><input Type="button" VALUE="Exit" id="button" class="test"
+onClick="history.go(-1);return true;"><br>
+<p id="demo"></p>
+</centre>
+</form>  
+</section>
+</fieldset>
+</form>
+<script>
+var x = document.getElementById("reslt1");
+var y = document.getElementById("reslt22");
+</script>
+</body>

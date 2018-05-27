@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "expenses" content="dayly-expenses 1.0">
+<meta name="Keywords" content="expense, finance, money, uitgawes, spending">
+<meta name="Description" content="Daily expenses transaction history." >
+<meta name="copyright" content="Copyright, 2016 NSauer">
+
+<title> Daily expenses transactions</title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="xpens-plain.css">
+<script type="text/javascript" src="xpenseJs-trans2.js"></script>
+<style>
+body {
+    background-color: #dcffcc;        
+}
+</style>
+</head>
+<body  onload="init();" background-color: #dcffcc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
+<body>
+<div class="main">
+<h2><center>Transactions</center></h2>
+<center><textarea  name="notestext2"  id="lextxtarea" readonly disabled hidden class="textlex"></textarea>
+<center>
+<table id="transtable">
+<caption>This months expenses</caption>
+<tr>
+<th> date</th>
+<th>amount</th>
+<th>description</th>
+</tr>
+</table>
+</center>
+Total :<input type ='text' name="extotal" id="total" size=10% disabled class="fontAmt"><br></center>
+<center><button type= "button" onclick="emaillocal()" disabled hidden >Email list  </button><br>
+<button type= "button1" font="80px" onclick="clearlocal()">Delete</button>
+<button type="button1" VALUE="Finish"
+	onClick="history.go(-1);return true;">Exit</button>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to local storage.</li>	
+	</u1>
+	</div>
+	<p id="demo"></p>
+</nav>
+</head>

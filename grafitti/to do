@@ -1,0 +1,14 @@
+To do
+1) code to be generated before message is send. use the date time and a character A-z.  read the table to make sure a duplicate does noet exist.
+2) save the code, time to local storage and table
+3) create a mail message and send to the receiver, add the code generated , add the reference to terms and conditions page
+4) add a user login with a email address stored localy. this is to use the email when sending the message. if possible encrypt this. maybe use a terms and condition page acceptanc button when first entering the mail address, hacker can hack local storage.
+5) create a terms and condition page to accept.
+
+
+
+PARK RUN APP.
+options
+1) capture date, time run. 
+2) distribute parkrun information, geolocation, attendance record, dates closed, contact person.
+

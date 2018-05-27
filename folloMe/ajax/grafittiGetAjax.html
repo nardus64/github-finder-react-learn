@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Graffiti </title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<head>
+<style>
+body {
+    background-color: #dcffcc;       
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: #dcffcc;
+    }
+}
+</style>
+<meta charset="utf-8">
+  <title >Graffiti.</title>
+<!-- use ajax to query the database and display values in this page at the div-->
+<script type="text/javascript" src="js/GraffitiGet.js"></script>
+<script type="text/javascript" src="js/grafittiAjax.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">    
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+getLocation();
+</script>
+<div class="container"  align="center" style="border:1px solid green">
+   <center>
+   <h1  class = "w3-jumbo w3-card w3-teal"> Read graffiti </h1>
+ <input type="button" VALUE="Mark location" onClick="poparray1()" 
+ class="w3-xxlarge w3-btn">
+ <br> <br>
+
+<form action="graffitigetphp.php" method="post" onSubmit="window.location.reload()" id="form2">
+  <input type="text" id="graflong" name="graflo" hidden > 
+  <input type="text" id="graflat" name="grafla" hidden> <br>
+  <p id="lon1" name="lon1name" hidden></p>
+  <p id="lat1" name="lat1name" hidden></p><br>
+  <p id="mapholder" name="mapholdera"></p>
+  <input type="submit" class="w3-xxlarge w3-btn w3-teal"value = "Read Grafitti">
+  <br/><br /> 
+</form>
+<!-- test ajax code start -->
+<div>
+<button type="button" onclick="loadDoc()">Request ajax data</button>
+<input type="submit" class="w3-xxlarge w3-btn w3-teal" value="Read Ajax Grafitti"
+ onClick="loadDoc('lon1name', 'lat1name')" id="subAjax">
+<br>
+<table id="demoTable"></table>
+</div>
+<div id="grafData">
+  
+</div>
+<!--<script src="js/grafittiDBAjax.js"></script>
+<!-- test ajax code end -->
+
+<div class="w3-center">
+<center><textarea  name="notestext2"  id="lextxtarea" readonly disabled hidden class="textlex"></textarea>
+</div> 
+<div>
+ <a  href="grafittiPutDB.html" class="w3-xxlarge w3-btn w3-card" type="button">Back</a>
+<div id="demoTable1"></div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true"> 
+</div>
+   </center>
+ </div>
+   <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+ </body>
+ </html>

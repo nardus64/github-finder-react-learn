@@ -1,0 +1,18 @@
+using google cloud platform
+
+node js
+quick app creation using gcloud
+ntroduction
+
+This tutorial shows you how to deploy a sample Node.js  application to Google App Engine flexible environment  using the gcloud command.
+
+Here are the steps you will be taking.
+
+Sign up for the free trial
+Get $300 credit for 60 days to explore all the features that Google Cloud has to offer.
+Create a project
+Projects bundle code, VMs and other resources together for easier development and monitoring.
+Build and run your "Hello World" app
+You will learn how to run your app using Google Cloud Shell directly in your browser. At the end you'll deploy your app to the Web using the gcloud command.
+After the app...
+Your app will be real and you'll be able to experiment with it after you deploy, or you can remove it and start afresh.

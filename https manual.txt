@@ -1,0 +1,8 @@
+get a secure website http for geolcation in chrome.
+
+# secure sites https ssl 
+ https://letsencrypt.org/ for free ssl cert.
+need the type (apache) of webserver sw and the OS - godaddy???
+lots of info here: https://www.chromium.org/Home/chromium-security/education/tls#TOC-TLS-Resources-for-Developers-and-Site-Operators
+
+use godaddy to create the ssl and add to the website

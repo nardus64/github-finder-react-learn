@@ -1,0 +1,38 @@
+grid
+css grid
+use firefox to test, it can show the grids:
+<head>
+<style>
+.wrapper{
+	display:grid;
+	grid-template-columns: 70% 30%;
+	/*grid-column-gap:1em;
+	grid-row-gap:1em;
+	can use fractions grid-template-colums: 1fr 2fr 1fr
+	use colums:repeat( 3, 1fr), this give 3 1fr columns*/
+
+	grid-gap:1em;
+	grid-auto-rows: minmax(100px, auto);
+	justify-items:stretch; /* default. begin, end,centre*/
+	align-items:top/* centre, bottom*/
+}
+.wrapper > div{
+	background:#eee;
+	padding:1em;
+}
+.wrapper > div:nth-child(odd){
+	background:#ddd;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+<div>
+ jdjdhjghjdghjghjghj
+</div>
+<div>
+dghjfghjfghjfghjfghjfghjfg
+</div>
+</div
+</body>

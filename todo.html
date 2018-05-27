@@ -1,0 +1,118 @@
+
+8/10/2017move to production:
+	librarylogin.php
+	libraryread.html
+	libraryadd.php
+	libraryhdr.html
+
+hashing passwords: bcrypt
+css grid - allaboutgrid.com
+
+$sql = "SELECT seq, bookuserid, bookname, bookauthor, bookrating, bookdescription FROM book1 LIMIT 0, 30 ";
+//* 
+if($result->num_rows < 1)
+        { 
+        echo "No Books found here. Please register and add some books.";        	
+        }
+else{
+        	echo "<table  class='w3-table-all w3-hoverable w3-xlarge>
+        	<tr>
+        	<th>My books</th>
+        	</tr>";
+            while($row = $result->fetch_assoc()) 
+            {
+            echo "<tr>";
+            echo "<td>" . $row['bookname'] . "</td>";
+            echo "<td>" . $row['bookauthor'] . "</td>";
+            echo "<td>" . $row['bookrating'] . "</td>";
+            echo "</tr>";	    
+        	}
+    	echo "</table>";
+    }
+ echo "hierso<br>";*//   
+
+ 
+    //while($row = $result->fetch_assoc()) {
+      //  echo "Name: " . $row['bookname']. " - Author: " . $row['bookauthor']. " Rating: " . $row['bookrating']. "<br>";
+
+#
+
+$username 	= "mydb1620";
+$password 	= "Mydb_16_20";
+bookuserid, bookname, bookauthor, bookrating, bookdescription
+/*WHERE bookuserid = '123456'";*/
+
+    else {
+        echo "<h2> hier after con </h2>" . $con->connect_error;
+    }
+
+gym need signon, add extra field to table for usercode- donation
+grafitti need payment option - donation.
+
+program changed:
+5/8/2017
+eats.html --> order the food group selectin alpha
+ why is the portion allowed to be empty--- set value to default 1
+ add container  to the <  div class.  maybe see if class-"container-fluid" works better (this is in bootstrap not in w3 framework)
+ fluid add the 12 columns
+ responsive (class=w3-row) may be  like fluid with w3-third/w3-half etc used to addres the colums used.
+
+look at font awesome
+aptana
+
+30/7/3017
+/javascript/myeating/
+eats.html
+eats-trans.html
+eatsjs.js
+eatsJs-trans2.js
+eats-trans-plain.ccs
+
+24/09/2017
+new library system /users/nardus/javascript/library
+added option library books to 
+
+/javascript/default.html
+
+new programs:
+libraryhdr.html
+libraryRead.html
+libraryRead.php
+
+
+older
+deploymnt:
+xpens-plain.html
+xpense-trans.html
+gym.html
+
+13/5/17
+grafittiGet.html - add facebook sdk and like and share bttons (very small on the phone)
+Default.html add facebook sdk and like and share buttons
+22/4
+gymresist-trans.html
+
+still to do
+Grafitti.
+	version 1.2
+	use jquery to display n the min html when disply Graffiti is selected.
+	maak elke row selectable om 'n enkele grafitti op die skerm te verf in grafitti font
+	version 2
+		gebruik 'n background op die foon kamera om grafitti op te verf.
+		erken die agtergrond en add die grafitti.
+
+gymhdr
+heading soos expense input screen
+verander die buttons
+gym.html
+maak reset button reg, - skuif in form in.
+bereken total km run reg
+gym transactions wys nie history nie.
+gym resistance, maak klaar.
+
+
+learn python at www.jetbrains.com/pycharm
+learn materialize frame at materialize.com/getting-started
+jason server: remote - jsonplaceholder.typicode.com
+github:typicode/json-server
+visualstudiocode

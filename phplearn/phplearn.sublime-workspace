@@ -1,0 +1,663 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"filter_",
+				"filter_input"
+			],
+			[
+				"di",
+				"div"
+			],
+			[
+				"a",
+				"action\tAttr"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"l",
+				"label\tTag"
+			],
+			[
+				"d",
+				"div\tTag"
+			],
+			[
+				"for",
+				"form\tTag"
+			],
+			[
+				"h",
+				"html\thtml"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"form",
+				"form1"
+			],
+			[
+				"w3-r",
+				"w3-round-large"
+			],
+			[
+				"distance",
+				"distanceField"
+			],
+			[
+				"distan",
+				"distanceField"
+			],
+			[
+				"w3",
+				"w3-xxlarge"
+			],
+			[
+				"loc",
+				"loclat"
+			],
+			[
+				"o",
+				"onreadystatechange"
+			],
+			[
+				"x",
+				"xmlhttp"
+			],
+			[
+				"g",
+				"g"
+			],
+			[
+				"g_",
+				"g_longtitude"
+			],
+			[
+				"graf",
+				"graf_long"
+			],
+			[
+				"map",
+				"maplat"
+			],
+			[
+				"mysql",
+				"mysql_error"
+			],
+			[
+				"conn",
+				"connected"
+			],
+			[
+				"s",
+				"sql"
+			],
+			[
+				"xms",
+				"xmscode"
+			],
+			[
+				"xmess",
+				"xmessage"
+			],
+			[
+				"xmes",
+				"xmesMesssage"
+			],
+			[
+				"user",
+				"usertable"
+			],
+			[
+				"list",
+				"listArry"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"t",
+				"textf"
+			],
+			[
+				"fo",
+				"footer\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/nardus/javascript/gym/gymresistadd.php",
+			"settings":
+			{
+				"buffer_size": 1695,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/nardus/javascript/gym/gymResist.html",
+			"settings":
+			{
+				"buffer_size": 5130,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp2/htdocs/gym/gymResist.html",
+			"settings":
+			{
+				"buffer_size": 5053,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp2/htdocs/gym/gymresistadd.php",
+			"settings":
+			{
+				"buffer_size": 1741,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/nardus/AppData/Local/Temp/fz3-14812811974140"
+	],
+	"file_history":
+	[
+		"/C/xampp2/htdocs/gym/README.md",
+		"/C/Users/nardus/javascript/todo.html",
+		"/C/Users/nardus/javascript/gym/gymresistadd.php",
+		"/C/Users/nardus/javascript/gym/gymResist.html",
+		"/C/Users/nardus/javascript/grafitti/grafitti.php",
+		"/C/Users/nardus/javascript/grafitti/grafittiPutDB.html",
+		"/C/Users/nardus/javascript/gym/resist.js",
+		"/C/Users/nardus/javascript/gym/resistget.php",
+		"/C/Users/nardus/javascript/gym/gymResist-trans.html",
+		"/C/Users/nardus/javascript/grafitti/graffitigetphp.php",
+		"/C/Users/nardus/javascript/grafitti/grafittiGet.html",
+		"/C/Users/nardus/javascript/grafitti/graffitiGet.php",
+		"/C/Users/nardus/javascript/gym/resistHint.php",
+		"/C/xampp2/htdocs/gym/gymresistadd.php",
+		"/C/Users/nardus/javascript/grafitti/gymresistadd.php",
+		"/C/Users/nardus/javascript/Default.html",
+		"/C/Users/nardus/javascript/gym/xercise-trans.php",
+		"/C/Users/nardus/javascript/gym/gymhdr.html",
+		"/C/Users/nardus/javascript/grafitti/graffitigetphp_backup.php",
+		"/C/Users/nardus/javascript/grafitti/grafittiDB.js",
+		"/C/Users/nardus/javascript/grafitti/GraffitiGet.js",
+		"/C/Users/nardus/javascript/gym/gym.html",
+		"/C/Users/nardus/javascript/gym/xrcise-trans.html",
+		"/C/Users/nardus/javascript/gym/xerciseJs-trans.js",
+		"/C/Users/nardus/javascript/gym/xrcise.js",
+		"/C/Users/nardus/javascript/grafitti/dbh.php",
+		"/C/Users/nardus/javascript/expenses/xpense-plain.html",
+		"/C/xampp2/htdocs/sandbox/filters.php",
+		"/C/Users/nardus/javascript/expenses/xpense-trans.html",
+		"/C/Users/nardus/javascript/gym/xerciseJs.js",
+		"/C/xampp2/htdocs/sandbox/get_posr.php",
+		"/C/xampp2/htdocs/sandbox/list.php",
+		"/C/xampp2/htdocs/sandbox/exersice the array and",
+		"/C/xampp2/htdocs/sandbox/filter.php",
+		"/C/xampp2/htdocs/sandbox/shorthand.php",
+		"/C/xampp2/htdocs/sandbox/website2/server-info.php",
+		"/C/xampp2/htdocs/sandbox/website2/index.php",
+		"/C/xampp2/htdocs/sandbox/files/contact.php",
+		"/C/xampp2/htdocs/sandbox/files/about.php",
+		"/C/xampp2/htdocs/sandbox/files/index.php",
+		"/C/xampp2/htdocs/sandbox/files/inc/footer.php",
+		"/C/xampp2/htdocs/sandbox/files/inc/header.php",
+		"/C/xampp2/htdocs/sandbox/variables.php",
+		"/C/xampp2/htdocs/sandbox/conditionals.php",
+		"/C/xampp2/htdocs/sandbox/functions.php",
+		"/C/xampp2/htdocs/sandbox/dates.php",
+		"/C/xampp2/htdocs/sandbox/loops.php",
+		"/C/Users/nardus/javascript/demo/demo2.js",
+		"/C/Users/nardus/javascript/demo/index.html",
+		"/C/Users/nardus/javascript/grafitti/grafittiDB.css",
+		"/C/Users/nardus/javascript/gym/xcerciseJs.js",
+		"/C/Users/nardus/javascript/testmamp/testRead.html",
+		"/C/Users/nardus/javascript/testflex.html",
+		"/C/Users/nardus/javascript/testmamp/testmamp.php",
+		"/C/Users/nardus/javascript/ajaxtest/test.php",
+		"/C/Users/nardus/javascript/grafitti/html-file",
+		"/C/Users/nardus/javascript/ajaxtest/test.html",
+		"/C/Users/nardus/javascript/grafitti/grafittiGetjquery.html",
+		"/C/Users/nardus/javascript/grafitti/GraffitiGetol.js",
+		"/C/Users/nardus/javascript/grafitti/grafittiGetold.html",
+		"/C/Users/nardus/javascript/grafitti/graffitiGet_backup.php",
+		"/C/Users/nardus/javascript/db insert example.js",
+		"/C/Users/nardus/javascript/grafitti/grafitti-light.php",
+		"/C/Users/nardus/javascript/grafitti/grafitti backup 15-1.php",
+		"/C/Users/nardus/javascript/messageplant/plantMsgDB.html",
+		"/C/Users/nardus/javascript/messageplant/plantmsg.php",
+		"/C/Users/nardus/javascript/expenses/xpens-trans-plain.css",
+		"/C/Users/nardus/javascript/db ibsert example.js",
+		"/C/Users/nardus/javascript/grafitti/grafete.fb",
+		"/C/Users/nardus/budget expenses 12-16",
+		"/C/Users/nardus/javascript/expenses/xpenseJs-trans2.js",
+		"/C/Users/nardus/my life hacks/life hacks",
+		"/C/Users/nardus/javascript/messageplant/examplephp program.html",
+		"/C/Users/nardus/javascript/messageplant/email example for  php",
+		"/C/Users/nardus/javascript/messageplant/godaddy",
+		"/C/Users/nardus/javascript/php/php.ini",
+		"/C/Users/nardus/javascript/messageplant/msgpDB.js",
+		"/C/Users/nardus/javascript/messageplant/test.html",
+		"/C/Users/nardus/javascript/messageplant/test.php",
+		"/C/Users/nardus/javascript/expenses/Default.html",
+		"/C/Users/nardus/javascript/messageplant/plantmsg_xmess.php",
+		"/C/Users/nardus/javascript/expenses/xpense-trans-backup.html",
+		"/C/Users/nardus/javascript/expenses/xpenseJs.js",
+		"/C/Users/nardus/javascript/expenses/xpenseJs-trans.js",
+		"/C/Users/nardus/javascript/expenses/xpense-trans2.html",
+		"/C/Users/nardus/car rental/europe car reference 1049103534",
+		"/C/Users/nardus/javascript/expenses/plantMsg.html",
+		"/C/Users/nardus/javascript/messageplant/plantMsg.html",
+		"/C/Users/nardus/javascript/expenses/xpens-plain.css",
+		"/C/Users/nardus/javascript/expenses/Xpensapp.css",
+		"/C/Users/nardus/javascript/messageplant/msgp.js",
+		"/C/Users/nardus/javascript/messageplant/msgp.css",
+		"/C/Users/nardus/javascript/messageplant/getPlantMsg.html",
+		"/C/Users/nardus/javascript/angular.io  quickstart",
+		"/C/Users/nardus/javascript/messageplant/plantMsg_original.html",
+		"/C/Users/nardus/javascript/expenses/blockjavascript3.js",
+		"/C/Users/nardus/javascript/expenses/BlockGame.html",
+		"/C/Users/nardus/javascript/stoptheblock/BlockGame2.html",
+		"/C/Users/nardus/javascript/messageplant/plantMsgv2.html",
+		"/C/Users/nardus/javascript/html5 edx/GF2.js",
+		"/C/Users/nardus/javascript/expenses/XpensApp.js",
+		"/C/Users/nardus/javascript/html5 edx/gf1.css",
+		"/C/Users/nardus/javascript/expenses/index.js.txt",
+		"/C/Users/nardus/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/nardus/javascript/expenses/blockjavascript2.js",
+		"/C/Users/nardus/npmtest/main.js",
+		"/C/Users/nardus/npmtest/blockstyle3.css",
+		"/C/Users/nardus/npmtest/blockjavascript3a.js",
+		"/C/Users/nardus/npmtest/blockjavascript3.js",
+		"/C/Users/nardus/npmtest/BlockGame2.html",
+		"/C/node/expense/routes/index.js",
+		"/C/node/expense/views/helloworld.jade",
+		"/C/Users/nardus/Downloads/dynamodb-dg.pdf",
+		"/C/node/nodetest1/node_modules/express/lib/router/layer.js",
+		"/C/node/nodetest1/app.js",
+		"/C/node/expense/package.json",
+		"/C/node/expense/app.js"
+	],
+	"find":
+	{
+		"height": 54.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			">\n",
+			"/tr>",
+			">\n",
+			"hint",
+			"q",
+			"Q",
+			"HTTP",
+			"init",
+			"selected",
+			"init",
+			"reset",
+			"?>",
+			"testlat",
+			"x",
+			"div",
+			"form",
+			"mytotal",
+			"alert",
+			"amountt",
+			"htmlrow",
+			"listArry",
+			"listArray",
+			"row",
+			"desct",
+			"init",
+			"compas",
+			"html",
+			"gym",
+			"return",
+			"training",
+			"money",
+			"popte",
+			".css",
+			".CSS",
+			"CLEARLOCAL",
+			"CLEAR",
+			"CLEARTOTAL",
+			"expe",
+			"alert",
+			"var x",
+			"found",
+			"poparray",
+			"graffitiget",
+			"getLocation",
+			"showpo",
+			"geolocation",
+			"br",
+			"grafittiput",
+			"grafittiput.html",
+			"location not",
+			"center",
+			"centre",
+			".js",
+			"init",
+			"php",
+			"media",
+			"fontamt",
+			"button",
+			"button1",
+			"container",
+			"overfl",
+			"container",
+			"css",
+			"echo",
+			"demo",
+			"latlon",
+			"getlocatio",
+			"poptextarea",
+			"splice",
+			"alert",
+			"save",
+			"send",
+			"textarea",
+			"light",
+			"@media",
+			"vsign",
+			"function mainloop",
+			"left",
+			"function mainloop",
+			"function in",
+			"start",
+			"init",
+			"fillte",
+			"drawendline1",
+			"drawendline",
+			"testCompWin3",
+			"computerm",
+			"button",
+			"aler",
+			"req",
+			"req  "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/nardus/javascript/gym/gymresistadd.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1695,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/nardus/javascript/gym/gymResist.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 998.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/xampp2/htdocs/gym/gymResist.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5053,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3500,
+								3500
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 870.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/xampp2/htdocs/gym/gymresistadd.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1741,
+								1741
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 294.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "phplearn.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 50.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

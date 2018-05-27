@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  lang="en">
+<meta charset="utf-8"> 
+<title> Message plant app.</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="msgpDB.css">
+<script type="text/javascript" src="msgpDB.js"></script>
+<head>
+<style>
+body {
+    background-color: #dcffcc;
+}
+textarea {
+    font-size: 35px;
+}
+</style>
+<div class="flex-container">
+  <title>Plant a message.</title>
+</head>
+<body>
+
+<center>
+<h1>Plant a message</h1>
+<p id="demo" >Plant a messsage at your position, <br> 
+Mark the spot,
+type a message, 
+name position,<br>
+email the positions name to a friend 
+Friend can now find the message.<br>
+Your message can only be read at this spot. </p><br>
+<button id="testbut" onclick="getLocation()">Mark the spot</button><br><br>
+
+<form action="plantmsg.php" method="post" onSubmit="window.location.reload()">
+<input type="email" placeholder="Enter email Address" id="emailAd" name='mail' class="textcss2">
+<br>
+<h2> Enter the message</h2>
+<input type="text" name="notestext" rows=3 cols=30 id="lextxtarea" placeholder="Type a Message"
+class="textcss2" ><br>  <br>
+<input type="text" id="txtName" placeholder="Name this location" name="locname" class="textcss">
+<br><br>    
+<input type="submit" value="Insert" class="textcss">
+</form>
+<div id="mapholder"></div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<button id="butsave" type= "button" onClick="saveLoc()" hidden >Send</button>
+<br><br>
+
+<form action="getPlantMsg.html" method="get" type="button" style="cursor:pointer">
+<button type="buttonexit" class="test"> Receive messages </button>
+</form>
+
+<br><br><br>
+<a class="test" href="http://xpens.co.uk/Default.html">Go to Main menu</a>
+</button>
+</center>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,9 @@
+media.css
+flexgrid
+@media screen & max-witdh:(900px)
+{section
+}
+@media screen & max-witdh:(800px){
+1.25rem)
+@media screen & max-witdh:(700px)
+@media screen & max-witdh:(400px)

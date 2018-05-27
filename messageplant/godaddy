@@ -1,0 +1,10 @@
+godaddy
+<html>
+<head><title> Test db connection</title></head>
+<body>
+</body>
+</html>
+
+$sql="insert into mytest (message, code) values('testing message', 'A12341')";
+
+header("refresh:3; url=test.html");

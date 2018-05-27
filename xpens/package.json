@@ -1,0 +1,17 @@
+{
+  "name": "xpens",
+  "version": "1.0.0",
+  "description": "This is the all in one home app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nardus Sauer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.14.0"
+  }
+  "engines": {
+    "node": "4.2.2"
+  },
+}

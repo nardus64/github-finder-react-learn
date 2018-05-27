@@ -1,0 +1,101 @@
+13/2/2016
+tutorial to create a web page to use mongodb.
+this use express to and jade
+http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+postman is a google extention to run apps without frontend
+1 install nodejs and npm(done)
+2 install express using --- commandpromptwindow cd\node c:\node, 
+		npm install -g express-generator(done and now lives in the npm directory)
+		nmp update packagename
+		npm publish
+		> npm init --yes // create a default package.json 
+3 create express project
+	use express and jade - can use the stylus CSS preproc but did not use it here
+	use jade to gain access to the node/express based data -- can also use 
+		ejs  - https://www.npmjs.com/package/ejs
+	
+	remember the indentation in jade is important
+	 run this : c:\express nodetest1 because the express was installled under nodejs and node js was installed under my user run this:
+	 
+	 c:\users\nardus\node_modules_global\express nodetest1
+	 (why is this not in  the system path?)
+	 u can see the path when the express generator was installed.where the global modules are installed.
+	 
+	 package.json was created in the c:\node\nodetest1\ directory.
+	 see the directories in the package directory  eg. routes etc.
+4) edit dependancies
+	 add calls for MongoDB and Monk after  the serve-favicon. (only if you will use mongodb)
+	        ......           ,
+		 "mongodb": "~2.0.33",
+		 "monk": "~1.0.1"
+	remember the comma after serve....
+	
+	this part need investigation as the mongo db id in a sub dir of users and does not run
+
+5) install dependencies
+	5a)cd to nodetest1
+	set up all the dependancies in the package.json file 
+	c:\node\nodetest1\npm install 
+		this did not insftall my mongodb or kerberos. I have different versions. will need to figure this out. for now my package use local storage
+	
+	5b)prepare for setting up the database later.
+		c:\node\nodetest1\mkdir data
+		
+6) test the server --- 
+	c:\node\expense\npm start	
+	navigate to localhost:3000 in browser.
+	navigate to localhost:3000/expense in browser for the expenses app.
+	
+	
+7) add more stuff, mongo etc
+ look at the apps.js in nodetest1 to see settings.
+ in apps.js find 
+	app.use('/', routes);
+	app.use('/users', users);
+-- users for adding users and apps  for  what the app need. ( route to stuff)
+- ignore user when doing everything in the index router
+	 in package/route open index.js
+	 
+8) in /routes/index.js add the filename to call.  this is a jade file for this implemention	  
+file called is the ../viewa/expense.jade
+change the expense.jade file to include the  web page(i think)
+
+9)	create db and read stuff from it
+for package create the /data irectory.
+run mongodb =   mongod --dbpath c:\node\nodetest1\data
+in a second commandline window
+cd c:\program files\mongodb\server\3.0\bin
+then run "mongod  --dbpath c:\node\nodetest1\data\" 
+I run "mongod  --dbpath c:\node\expense\data\" 
+then 
+in the mongo/bin run "mongo" to connect to test.
+create the db for expense app.: use expense
+
+mongo use json for structure. READ UP ON JSON.
+allow mongo to create the db _id
+db.usercollection.insert({"username" : "testuser", "email" : "test@test.com"  })
+db stand for my databasse created previously in the use statement
+usercollection is the coollection. - this is auto created 
+
+HOOK MONGO TO THE NODE
+add 3 lines to app.js 
+aftert var bodyparser = .....
+// New Code
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/nodetest1');
+
+These lines lines tell our app we want to talk to MongoDB, we're going to use Monk to do it, and our database is located at localhost:27017/nodetest1. Note that 27017 is the default port your MongoDB instance should be running on. 
+
+add these 
+// add new code here
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+//
+ lines before 
+app.use('/', routes);
+app.use('/users', users);
+

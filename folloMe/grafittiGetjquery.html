@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Graffiti </title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="GraffitiGet.css">
+
+<head>
+<style>
+body {
+    background-color: #dcffcc;       
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: #dcffcc;
+    }
+}
+</style>
+<meta charset="utf-8">
+  <title>Graffiti.</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="GraffitiGet.js"></script>
+</head>
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">    
+<body>
+   <center>
+
+   <h1> Find graffiti </h1>
+<form>
+
+ 	<button id="listbut" onclick="poparray1();" class = "but1">List </button><br /><br /> 
+  <p id="lon1"></p> <p id="lat1"></p>
+<h2> Graffiti found</h2>
+
+ 	<textarea  cols=30 rows=7 name="msgtext" id="showMessage" placeholder="No Message found" class="textcss2"></textarea><br /> <br /> 
+ 	 <input type="button" VALUE="Exit" class="but1"
+	onClick="history.go(-1);return true;" class="w3-xxlarge">
+	<p id="demo"></p> 
+
+</form>
+   </center>
+ </body>
+ </html>

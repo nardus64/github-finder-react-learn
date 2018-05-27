@@ -1,0 +1,162 @@
+mongodb basic:
+mongodb compass. this is the database manager
+mongodb app for the android.
+
+install mongodb: download from mongo.com
+select server. enterprise adition for the course
+
+open :system environment variables, nvironment variables, path, edit and add path t mongodb,C:\prvieDataogram files\mongodb\3.4\bin
+and move to the top.
+open a new shell and run mongo --nodb
+this will not wait for a  connection.
+NAVIGATE TO 3.4/BIN AD EXECUTE THE 3.4 SERVER. PATH IS BROKEN OR MONGO.BAT IS INTERFERINNG WITH  THIS
+
+conect to cluster for :
+mongo "mongodb://cluster0-shard-00-00-jxeqq.mongodb.net:27017,cluster0-shard-00-01-jxeqq.mongodb.net:27017,cluster0-shard-00-02-jxeqq.mongodb.net:27017/100YWeeatherSmall?replicaSet=Cluster0-shard-0" --authenticationDatabase admin --ssl --username m001-student --password m001-mongodb-basics
+
+create a directory in home directory:m001
+copied the directory to include the video database in my cluster.
+to include it in my cluster use:
+>load the javascript file using the load function
+> load ("loadMovieDetailsDataset.js")
+
+> use video
+this will switch to  videos 
+> show collections
+this show the collections in the db
+>db.movieDEtails.find().pretty()
+this will show documents(records)
+
+to connect to your sandbox cluster using compass - 
+use the name in mongodb atlas(on the web) by click on the name of the cluster to open it, then click on the primary and copy the name onto, that is  the url.
+open compass app locally and connect by pasting the url into the name, add a name and pass word ANDMAKE THIS A FAVAUORITE!!!
+
+insert documents in mongodb compass:
+create new collection: click the database eg videos, click insert new collection, name the collection,
+	insert document
+	add fields and values, then insert the document
+insert using Mongo shell
+	use method insertOne()
+	db.MovieScratch.insertOne({title:"Star Trek II the wrath of khan", year:1982, imdb:"tt0084726"})
+	insertOne will create a collection if one does not exist.
+insertManny() this pass an array to the collection
+	db.MovieScratch.insertMany([{}{}{ordered:"false"}])
+	--odered:false allow errors to be skipped and inser continue.
+to do the find
+	db.movies.find({mpaaRating:"pg-13"}).pretty()
+	db.movieDetails.find({"awards.wins":2,"awards.nominations":2}).count()
+
+Arrays:
+db.movies.find({cast: ["Jeff Bridges", "Tim	Robbins"]}).pretty()
+to look for a value in a certain array position eg 0
+db.movies.find({"cast:0": "Jeff Bridges"}).pretty()
+db.movieDetails.find({writers:["Ethan Coen","Joel Coen"]}).count()
+
+return certain fields only called projections:
+db.movies.find({"cast:0": "Jeff Bridges"},{title:1, _id:0})
+the 1 = include and 0 will exclude the field
+
+UpdateOne()
+syntax - do a find to id the document, then supply the values to be added 
+db.moviDetails.updateOne({title:"The Martian"}, {$set: {"awards":{"wins": 8,"nominations":14, "text" : "Nominated for 3 Golden Globes, anather 8 wins ans 14 nominations"}}})
+can use $unset, $rename. $inc etc see documentation on Update operatrs 
+increment a number use $inc
+db.movieDetails.updateOne({title:"The Martian"{$inc:{
+		"tomato.reviews":3,
+		"tomato.userReviews":25
+}}})
+updateMany()
+db.movieDetails.updateMany({rated : null{$unset:{rated:""}}})
+$unset remove the value and replace value
+
+upserts: update and insert
+db.movieDetails.updateOne({
+"imdb.id" : detail.imdb.id},{$set:detail}, 
+{upsert: true})
+see the third parameter for updateOne()
+
+replaceOne()
+replace a document.
+db.movieDetails.replaceOne({
+	"imdb.id":detaiilsDoc.imdb.id
+},
+detailDoc
+);
+start with this in the shell:
+ detailDoc = db.movieDetails.findOne({"imdb.id": "tt4368814"})
+detailDoc.poster;
+detailDoc.poster = "http......";
+detailDoc.genres.push("Documentary"); -- push into the array
+db.MovieDetails.replaceOne({"imdb.id":detailDoc.imdb.id},detailDoc);
+
+deleteOne()
+db.reviews.deleteOne({_id: ObjectId("5667789...")});
+deleteMany()
+db.reviews.deleteMany({reviewer_id:123445});
+
+find 
+db.movieDetails.find({runtime: {$gt: 90}},{_id: 0; title: 1, runtime: 1})
+find with > 1 fields:
+db.movieDetails.find({runtime: {$gte:180}, "mato.meter"{%gte: 95}},{_id: 0, title: 1, runtime :1})
+
+using $in 
+db.movieDetails.find({rated: {$in:["g","PG"]},{_id: 0, title: 1, rated: 1}})
+
+{ writers: {$in: [ "Ethan Coen", "Joel Coen" ]}}
+$lt, $gt $lte
+
+{mpaarating:{$exists: false}} 
+{mpaarating:{$exists: true}}
+
+use movies
+db.movies.find({viewerRating: {$type:"int"}}).pretty()
+
+$or
+db.movieDetails.find({$or:[{"tomato.meter":{$gt:95}},
+							{"metacritic":{$gt:88}}]},
+							{_id:0, title: 1,"tomato.meter":1,
+							"metacritic": 1})
+
+({$or:[{"watlev":{"alwways dry"}},{"depth":{$eq:0}}]})	
+{"waterLev":"always dry"}
+correct answer: {$or: [{depth: 0}, {watlev: "always dry"}]}
+
+genres:{$all: ["Comedy","crime"]}
+antwoord:
+use 100YWeatherSmall
+
+$and use and when 1 field is tested for multiple critria in same query
+
+$all
+db.data.find({sections: {$all: ["AG1", "MD1", "OA1"]}}).count()
+in compass: {sections: {$all: ["AG1", "MD1", "OA1"]}}
+
+$size:
+db.movieDetail.find({countries:;{$size: 1}}).pretty()
+
+$elemMatch:
+db.movieDetails.find({boxOffice: {elemMatch: {"boxOffice.country": "Germany","boxOffice.revenue":{$gt:16}}}})
+
+use results
+
+db.surveys.find({results: {$elemMatch: {product: "abc", score: 7}}}).count()
+
+-----------------------
+create a atlas cluster
+Please note that, while we've labeled this as a lab, it is ungraded. This writeup is here simply to get you started on creating an Atlas cluster.
+
+Go to https://cloud.mongodb.com/links/registerForAtlas and complete the account creation form you see on that page. Please make sure you see the message "Sign up for MongoDB Atlas" at the top of the page.
+Once you have completed the registration form, in the next page that appears, you will be asked to choose a new group name. We use groups to manage access to Atlas clusters. Please use the name, m001-sandbox.
+Once you have created a group, in the next page, enter the name, Sandbox for your cluster.
+On the same page, select the M0 instance size. Note that the "Pricing" now changes to say "$0.00/forever". You do NOT need to enter a credit card to create a free-tier Atlas cluster (M0). They are free.
+Scroll to the bottom of the cluster-creation form and enter an administrative username and password. Please enter the username, m001-student and the password, m001-mongodb-basics
+Once you've entered your username and password, click Confirm & Deploy. You will need to wait a few minutes for your cluster to be spun up.
+Once your cluster is ready, click on the Security tab and then on the IP Whitelist tab. Click the ADD IP ADDRESS button and, then, in the modal that pops up, click ALLOW ACCESS FROM ANYWHERE. Click the CONFIRM button and wait while the security settings for your cluster are configured.
+Note that we do not generally recommend opening an Atlas cluster to allow access from anywhere. We do that for this class to minimize network issues that you might run into.
+
+
+to connect to my student cluster, in mongodb atlas(web page) click connect and use the shell connect 
+scroll to bottom script. 
+Run this command in the dos command box: go to c:\users\nardus\m001\ om dit die mongod werk directory te maak.:
+mongo "mongodb://nartjie1-shard-00-00-i6ilt.mongodb.net:27017,nartjie1-shard-00-01-i6ilt.mongodb.net:27017,nartjie1-shard-00-02-i6ilt.mongodb.net:27017/test?replicaSet=nartjie1-shard-0" --authenticationDatabase admin --ssl --username m001-student --password m001-mongodb-basics
+

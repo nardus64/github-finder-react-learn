@@ -1,0 +1,528 @@
+var video;
+ form {
+  margin: 0 auto;
+  width : 400px;
+
+  padding: 1em;
+  border : 1px solid #CCC;
+  border-radius: 1em;
+} 
+   
+    function init() {
+       // function called when the page is loaded
+       video = document.querySelector("#myVideo");
+       // For initial value
+       video.width = window.innerWidth;
+       video.height = window.innerHeight;
+       // For dealing with window resize
+       window.onresize = function() {
+           video.width = window.innerWidth;
+           video.height = window.innerHeight;
+       };
+    }
+h3 {text-align: center;}
+.button1 {text-align: center;
+		width:40px;
+		border-radius: 50%;}
+div {alignment:centre;}
+.centre{
+	margin: auto;
+	width:90%;
+	border:3px solid;
+	padding: 10px;
+	
+}	
+.centre2{
+	margin: auto;
+	width:100%;
+	border:1px solid;
+	padding: 5px;
+	
+}	
+.demoblock{
+	margin: auto;
+	width:80%;
+	border:1px solid;
+	padding: 5px;
+	float:bottom;
+	
+}
+#h5 {text-align: center;}
+body { color: black;
+text-align: center;
+background-color: lightblue;} 
+#body{
+    #figaudio1 {
+        width : 420px;;
+        text-align:center;
+        padding : 6px;
+        background : white;
+        margin : 0 11px 0px 0;
+        border :solid 1px #888888;
+        border-radius : 8px ;
+    }
+ #myCanvas1 {
+         border: 1px solid black;
+     }    
+    #figcptionaudio1 {
+        font-size : .8em;
+        padding : 6px 8px;
+        background : #dddddd;
+        display :block;
+        text-align :center;
+        font-family : georgia, serif;
+        font-style : italic;
+        border-radius : 7px ;
+    }}
+  body1 {   
+    #figaudio1 > img {
+        background : #eeeeee;
+        padding : 5px;
+        border : solid 1px #444444;
+    }}
+     
+    /* For audio and img transitions/animation */
+    audio, #figaudio1 > img {
+        transition:all 0.5s;
+    }
+     
+    #figaudio1 > img:hover {
+        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+        transform: scale(1.05);
+    }
+     
+    audio:hover, audio:focus, audio:active {
+        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+        transform: scale(1.05);
+    }
+	body{
+    #w3devCampusVideo {
+        width: 200px;
+		height: 200px
+        transition: all 0.5s ease-in-out;
+    }}
+    body { 
+    #w3devCampusVideo:hover {
+        width:200px;
+        transform:rotate(-5 deg);
+    }}
+
+    body {
+        margin:0;
+        padding:0;
+        overflow:hidden;
+    }
+
+#theheader{
+ display: block;
+ 
+}
+#thegame{
+	width:45%;
+	min-width:350px;
+	height:170px;
+	float:left;
+	padding:5px;
+	background-color:lightblue;	
+	border:2px;
+}
+#thepay{
+	width:40%;
+	height:150px;
+	float:right;
+	padding:5px;
+	background-color:lightblue;
+	border:5px;
+}
+testing{
+	height: 50%;
+    background-image: url('http://dupontcours.free.fr/IMG/dots.png'),                             url('#');	
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    background-position: center center, top left;
+    font-family: sans-serif;
+    color: #051a00;
+}
+
+ canvas {
+  border:1px solid black
+}  
+input#but001{
+	cursor:pointer;
+	background:#ffae00;
+	border:3px;
+	color:colorsaved;
+}
+input#but002{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but003{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#ffff;
+}
+input#but004{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but005{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but006{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but007{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but101{
+	cursor:pointer;
+	background:#ffae00;
+	border:3px;
+	color:colorsaved;
+}
+input#but102{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but103{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#ffff;
+}
+input#but104{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but105{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but106{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but107{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but201{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but202{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but203{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but204{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but205{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but206{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but207{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but301{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but302{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but303{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but304{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but305{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but306{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but307{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but401{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but402{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but403{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but404{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but405{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:colorsaved;
+}input#but406{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:colorsaved;
+}input#but407{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but501{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but502{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but503{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but504{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but505{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but506{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but507{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but601{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but602{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but603{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but604{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but605{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+
+input#but606{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but607{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but701{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but702{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but703{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but704{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but705{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but706{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but707{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but801{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+
+input#but802{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but803{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}
+input#but804{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but805{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but806{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but807{
+	cursor:pointer;
+	background:#ffae00;
+	border:1px;
+	color:#fff;
+}input#but56{
+	cursor:pointer;
+	background:colorsaved;
+	border:1px;
+	color:#fff;
+}input#but57{
+	cursor:pointer;
+	background:colorsaved;
+	border:1px;
+	color:#fff;
+}

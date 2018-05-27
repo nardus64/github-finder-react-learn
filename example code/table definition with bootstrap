@@ -1,0 +1,55 @@
+table to address the selections. used with bootstrap.
+<hr>
+<!-- table with a button to indicate start and end and remove data from the table. input field is at the top 
+-->
+<HTMLDOC> <html>
+</head>
+<body>
+<div class="container-fluid"
+<header class="row">
+	<div class=""w3"-small">
+	<a href="#"> Enter restore mode</a>
+	</div>
+	<div class="w3-small w3-right">
+		total Time:
+	</div>
+</header>
+	<div class="row">
+	<form>
+		<div class="w3-large">
+<!--input field -->
+			<input class="form-control" placeholder="Enter task here..">
+		</div>
+		<div class="w3-large">
+		<button type="submit" class="w3-button w3-green">start </button>
+		</div>
+	</form>
+	</div>	
+<table class="table table=bordered">
+
+<thead>
+<tr>
+	<th>task</th>
+	<th>start</th>
+	<th>end</th>
+	<th>time</th>
+	<th colspan="2">controls</th>
+
+</tr>
+</thead>
+<tbody>
+	
+	<td>data</td>
+	<td>ata</td>
+	<td>ata</td>
+	<td>ata</td>
+	<td><button type="submit" class="w3-button w3-blue">stop </button></td>
+	<td><td><button type="submit" class="w3-button w3-red"> X </button></td></td>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</body>
+</html>

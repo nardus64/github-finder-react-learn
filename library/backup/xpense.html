@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title> Expenses app.
+</title>
+
+<link rel="stylesheet" href="xpensestyle2.css">
+<script type="text/javascript" src="xpenseJs.js"></script>
+</head>
+<body  onload="init();" background-color: #cccccc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+<
+const blocksize = 50;
+var beginVarSize = 0;
+var beginVarLineH = 0;
+var beginVarlineV = 0;
+var beginspasies = 2;
+var usertotal = 0; 
+var comptotal = 0;
+var blockH1 = 0;
+var blockH2 = 52;
+var blockH3 = 104;
+var blockH4 = 154;
+
+var block1V = 0;
+var block2V = 52;
+var block3V = 104;
+var block4V =  154;
+var exDatef = 0;
+var exNumf = 0;
+
+var mousePos;
+var countblock1 = 0;
+var countblock2 = 0;
+var countblock3 = 0;
+var countblock4 = 0;
+var countblock5 = 0;
+var countblock6 = 0;
+var countblock7 = 0;
+var countblock8 = 0;
+var countblock9 = 0;
+var block1Clicks = 0;
+var block2Clicks = 0;
+var block3Clicks = 0;
+var block4Clicks = 0;
+var block5Clicks = 0;
+var block6Clicks = 0;
+var block7Clicks = 0;
+var block8Clicks = 0;
+var block9Clicks = 0;
+var compmovedone = 'n';
+var a = 0;
+var ws-today = "2016-01-01";
+
+
+const randomClickNo = 5;
+</script>
+<article>
+<section>
+<header>
+<h1>Expenses app.</h1>
+</header>
+<section>
+<center><h3>Daily Expense.</h3></center>
+
+<form>
+<center>Date<input type="date" name="exDate" id="lexdate"  >
+Amount<input type = "number" name="exNum" id="lexnum"><br><br>
+Description<br><input type ='text' name="extxt" id="lextext" size=50%>
+</center>
+<br><br><br>
+<center><button onclick="saveme()">Save me</button><br><br>
+List transactions<br></center>
+<center><textarea  name="notestext2" rows=3 cols=60 id="lextxtarea" readonly disabled></textarea><br>
+Total<input type ='text' name="extotal" id="total" size=10% disabled><br></center>
+</form>
+
+<center><h4> Maintenance</h4></center>
+<center><button type= "button" onclick="emaillocal()" disabled >Email list  </button>
+<button type= "button" onclick="clearlocal()">Delete all</button><br><br>
+<form action="BlockGame.html" method="get" type= "button1">
+<button>Play game 1</button>
+</form>
+<form action="./test/BlockGame2.html" method="get"type= "button1">
+<button>Play game 2</button></center>
+</form> 
+</article>
+<nav>
+
+</nav>
+<footer>
+	<u1>
+	<center><li>This app save to local storage.</li></center>
+
+	</U1>
+</body>
+
+</head>

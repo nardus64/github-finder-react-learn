@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html  lang="en">
+<meta charset="utf-8"> 
+<title> Message planter app.</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="msgp.css">
+<script type="text/javascript" src="msgp.js"></script>
+<head>
+<style>
+body {
+    background-color: lightgreen;
+}
+</style>
+  <title>Plant a message.</title>
+</head>
+<body>
+<center>
+<h1>Plant a message</h1>
+<p id="demo" >Plant a messsage at your position, <br> 
+type a message, 
+name position,<br>
+email name to a friend 
+to find the message. </p>
+<h2> Enter the message</h2>
+    <textarea  name="notestext" rows=3 cols=30 id="lextxtarea" placeholder="Type a Message" ></textarea><br>  <br>
+<button onclick="getLocation()">Open Map</button>
+
+<div id="mapholder"></div>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=16&size=200x150&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<div style="background-color: green; color:white; padding: 1%;">
+<input type="text" id="txtName" placeholder="name this location"><br><br>
+<input type="email" placeholder="Enter email Address" id="emailAd" size="2px"><br><br>
+<button type= "button" onClick="saveLoc()">Send</button><br><br>
+</div>
+<button type = "button" id="button2"> Get messages </button><br><br>
+<input type="button" VALUE="Exit" 
+    onClick="history.go(-1)"; return true;>
+</center>
+</body>
+</html>
+

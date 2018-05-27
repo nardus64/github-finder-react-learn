@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Demo: Setting the value of the text input element through Javascript</title>
+	<script script type="text/javascript" src="demo2.js"></script>
+</head>
+<body onload="initForm(document.forms[0], 'service_complaint', 'Please enter your complaint in brief');">
+
+	<h2 style="color: #8e9182">Setting the value of the text input element through Javascript</h2>
+	<p>Register your complaint</p>
+	<form name="register_complaint" id="register_complaint_frm" action="#"> 
+	<table cellspacing="4">	
+		<tr><td><label for="name">Full Name: </label></td><td><input type="text" size="30" maxlength="155" name="name" ></td></tr>
+		<tr><td><label for="email">Email Id: </label></td><td><input type="text" size="30" maxlength="155" name="email" ></td></tr>
+		<tr><td><label for="service_complaint">Service Complaint: </label></td><td><textarea name="service_complaint" rows="7" cols="50" onfocus="clearFieldFirstTime(this);"></textarea></td></tr>
+		<tr><td><label for="membership_period">Months as member: </label></td><td><input type="text" size="5" maxlength="5" name="membership_period" value="6">
+		<input type="button" name="increase" value="+" onclick="monthModify(this.form.elements['membership_period'], this);" >
+		<input type="button" name="decrease" value="-" onclick="monthModify(this.form.elements['membership_period'], this);" ></td></tr>
+		<tr><td colspan="2"><input type="button" name="submit" value="Submit Complaint" onclick="showFormData(this.form);" ></td></table>
+	</form>
+	
+</body>
+</html>	

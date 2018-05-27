@@ -1,0 +1,2 @@
+couch DB
+start in console mode  coach db =  execute /bin/coachdb.bat

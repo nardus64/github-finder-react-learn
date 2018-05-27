@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "excercises" content="my library 1.0" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Keywords" content="boek, lees, reading, book, books">
+<meta name="Description" content="Help keeping track of books read" >
+<meta name="copyright" content="Copyright, 2016 NSauer">
+
+<title> Keeping track of books read</title>
+    <link rel="shortcut icon" sizes="128x128" href="./icns/gym.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+<script type="text/javascript" src="xrcise.js"></script>
+<style>
+body {
+    background-color: #dcffcc;        
+}
+form {border: 3px solid #659960;
+}
+@media screen and (max-width: 300px) {
+  span.psw{
+    display: block;
+    float: none;
+  }
+  .cancelbtn{
+    width: 100%;
+  }
+};
+</style>
+<link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> 
+</head>
+<body  onload="init();" background-color: #dcffcc;>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265618727135334',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+var a = 0;
+var wstoday = "2016/01/01";
+
+</script>
+<body>
+<div class="w3-container w3-panel w3-centre w3-border-left">
+<h1 class="w3-xxlarge w3-teal" ><center>Books read</center></h1>
+
+
+<form action="libraryadd.php" method="post" onSubmit="window.location.reload()" id="form1" name="gymmy" class="w3-container w3-centre">
+<table width="100%" border="0" center>
+
+<tr>
+<td></td>
+<td class="w3-xlarge" id="bookNameid">Title</td>
+<td><input type = "text" name="bookName" id="bookNameidtd" class="w3-xlarge" placeholder="Title" required maxlength="100" size="80%"  autofocus/> </td>
+<td class="w3-large" id="searchmydataN">
+<button type="w3-button" onclick="searchme()" class="w3-xxlarge" >Search</button></td>
+<td></td>
+</tr
+
+<tr>
+<td></td>
+<td class="w3-xlarge" id="authorid">Author</td>
+<td><input type = "text" name="authorname" id="authoridtd" class="w3-xlarge" placeholder="Author" maxlength="50" /> </td>
+<td class="w3-large" id="searchmydataA">
+<button type="w3-button" onclick="searchme()" class="w3-xxlarge" >Search</button></td>
+<td></td>
+<td></td>
+</tr
+
+<tr>
+<td></td>
+<td class="w3-xlarge" id="ratingid"> Rating </td>
+<td><input type = "text" name="ratingname" id="ratingidtd" class="w3-xlarge" placeholder="1-10" size="5%" required maxlength="2" /> rating 1= bad, 10=Keeper</td>
+<td class="w3-large" id="searchmydataR">
+<button type="w3-button" onclick="searchme()" class="w3-xxlarge" >Search</button></td>
+<td></td>
+
+</tr>
+
+<tr>
+<td></td>
+<td class="w3-xlarge">Description</td>
+<td><input type ='text' name="descriptname" id="descriptidtd" size=10% class="w3-input w3-xlarge" placeholder="A short description"/></td>
+</tr>
+<tr>
+<td></td>
+<td class="w3-xlarge w3-centre" id="datums">Date started</td>
+<td><input type="date" name="exDate" id="dateidtd" font="30px" class="w3-input w3-xlarge w3-centre" placeholder="select the start date" required
+ size="20%" /></td>
+<td class="w3-large" id="searchmydataD">
+<button type="w3-button" onclick="searchme()" class="w3-xxlarge" >Search</button></td>
+<td></td>
+</tr>
+
+<tr>
+<input type="text" id="userid" name="userid" hidden>
+</tr>
+
+<tr>
+<td class="w3-xxlarge w3-centre" id="reset" > <input type="reset"></input></td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+</table>
+<br><input type="submit" value="Add/Update" class="w3-xxlarge w3-btn w3-centre" id="saveMyData" disabled>
+</form>
+
+</center>
+
+</p>
+<br>
+
+Total books read: <input type ='text' name="extotal" id="total" size=10% disabled 
+class="fontAmt"><br></center><br>
+<center><button type= "button" onclick="emaillocal()" disabled hidden >Email list  </button><br>
+
+</form>
+<p class="w3-center">
+<form action="books-trans.php" method="get" type="button" style="cursor:pointer" name="histo"
+ class="w3-container">
+<button type="w3-button" class="w3-xxlarge cancelbtn"> History </button><br><br>
+</form>
+</p>
+<button type="w3-button" value="Finish" class="w3-xxlarge cancelbtn" 
+	onClick="history.go(-1);return true;">Exit</button>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to the cloud.</li>	
+	</u1>
+	</div>
+	<p id="demo"></p>
+</nav>
+</head>

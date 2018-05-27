@@ -1,0 +1,22 @@
+tag games
+object: tag as many objects in the world and advertise to friends to tag the same object. ogjects get rank of importance by the number of tags
+
+gift games
+leave gifts for friends to pick up at places in the real world using the geolocation., send  a message to friends to alert them a gift was left. friend will then go to that gea area and locate the gift. 
+add some chalange to the gift when leaving the gift. ie, walk 5km to unwrap the gift, do not ask tehm to go to a certain place to unwrap. may cause manipulation. allow opt out option with stamia points.
+chalanges:
+walk 5km or selected km's. 
+only unwrap at a certin time.
+must be retreived in a specific time.expiry date set.
+must leave a gift before unwrapping.
+
+gifts to leave
+vitual flower
+cars, toys, clothing, wise saying, flowers
+Maybbe gift vouchers from a local shop????? investigate the possibility.
+
+players receive 3 fift free every day.
+allow to purchase more gifts.
+
+interface - easy to use for older players, use a single large button to retrieve or place gift. select from the available gifts. pictures on the screen representing the gifts.
+

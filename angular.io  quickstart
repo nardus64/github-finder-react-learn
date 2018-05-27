@@ -1,0 +1,4 @@
+angular.io  quickstart
+angularfire at https://github.com/firebase/angelarfire#
+inside the 
+angular.module('app',['firebase'])
